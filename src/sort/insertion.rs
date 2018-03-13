@@ -6,13 +6,13 @@
 //!
 //! For example, say we have the following array:
 //!
-//! ```
-//! [31, 41 59, 26, 41, 58]
+//! ``` text
+//! [31, 41, 59, 26, 41, 58]
 //! ```
 //!
 //! Insertion sort proceeds as follows:
 //!
-//! ```
+//! ``` text
 //! +----+----+----+----+----+----+
 //! |    |    |    |    |    |    |
 //! | 31 | 41 | 59 | 26 | 41 | 58 |
@@ -129,6 +129,25 @@ where
     }
 }
 
+/// The CLRS implementation sorting in nonincreasing order
+#[doc(hidden)]
+pub fn clrs_rev<T>(arr: &mut [T])
+where
+    T: Copy + PartialOrd
+{
+    for j in 1..arr.len() {
+        let key = arr[j];
+        let mut i = j;
+
+        while i > 0 && arr[i - 1] < key {
+            arr[i] = arr[i - 1];
+            i -= 1
+        }
+
+        arr[i] = key;
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -161,5 +180,12 @@ mod tests {
         let mut single = [1];
         rev(&mut single);
         assert_eq!(single, [1]);
+    }
+
+    #[test]
+    fn test_clrs_rev() {
+        let mut arr = [31, 41, 59, 26, 41, 58];
+        clrs_rev(&mut arr);
+        assert_eq!(arr, [59, 58, 41, 41, 31, 26]);
     }
 }
