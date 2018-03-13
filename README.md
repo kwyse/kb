@@ -11,10 +11,10 @@ useful, obscure and downright bizarre facets of computer science and related
 subjects. It will grow organically and contain material from as many sources as
 I deem possible, based on their suitability.
 
-It's in Rust because Rust beautifully combines the low level expressiveness
-required to see how the algorithms work, and the expressiveness to keep their
-implementations succinct and intention clear. And `rustdoc` is amazing. It's the
-enabler that's underpinning the project.
+It's written in Rust because Rust beautifully combines the low level
+explicitness required to show how the algorithms work, and the expressiveness to
+keep their implementations succinct and intention clear. And `rustdoc` is
+amazing. It's the enabler that's underpinning the project.
 
 ## Why
 
