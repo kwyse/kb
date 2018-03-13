@@ -28,7 +28,7 @@ The only way to solidify knowledge is to make it a companion in life. So I shall
 read. I'm on the hunt for mythical tomes of computational insight. These will
 form the backbone of the source material.
 
-# How
+## How
 
 By reading, comprehending, summarising, implementing, testing, and benchmarking
 concepts from the following guiding lights:
@@ -39,7 +39,7 @@ concepts from the following guiding lights:
 These are just the books I have acquired copies of. I wish the list steadfast
 growth!
 
-# When
+## When
 
 This is a lifelong endeavour, and this repository is just one manifestation of
 it.
