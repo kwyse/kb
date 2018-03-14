@@ -111,9 +111,10 @@ where
 /// response](https://codereview.stackexchange.com/a/142070)
 ///
 /// This solution does a swap (multiple assignments) in the inner loop, but
-/// doesn't require the key to be held in the outer loop's stack frame. It
-/// terminates the inner for loop under the same condition that the CLRS version
-/// does (the key is *less* than the value at the current index).
+/// doesn't require the key to be held in the outer loop's stack frame. It also
+/// doesn't require the type parameter to be `Copy`. The termination condition
+/// for the inner loop is the same as the CLRS version (the key is *less* than
+/// the value at the current index).
 ///
 /// This version is notably slower in benchmarks than the CLRS version.
 pub fn shepmaster<T>(arr: &mut [T])
