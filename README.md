@@ -43,3 +43,9 @@ growth!
 
 This is a lifelong endeavour, and this repository is just one manifestation of
 it.
+
+## Who
+
+You and I, though mostly I. I am happy to accept pull requests that correct
+typos, improve formatting, rectify factual inconsistencies, and the like.
+You'll have my gratitude for these. New material, however, is my responsibility.
