@@ -25,9 +25,9 @@ fn insertion_sort_clrs_1000_u8(b: &mut Bencher) {
 }
 
 #[bench]
-fn insertion_sort_rev_1000_u8(b: &mut Bencher) {
+fn insertion_sort_shepmaster_1000_u8(b: &mut Bencher) {
     let mut arr = INPUT.clone();
-    b.iter(|| rev(&mut arr));
+    b.iter(|| shepmaster(&mut arr));
 }
 
 fn gen_u8_vec(n: usize) -> Vec<u8> {

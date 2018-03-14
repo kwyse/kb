@@ -68,7 +68,7 @@
 /// This solution matches the one presented in CLRS with one exception: `i` is
 /// set to `j` initially, rather than `j - 1`, and the inner loop only executes
 /// when `i` if not indexing the first element. This prevents `i` from ever
-/// being negative, which causes overflow if `i` is a usize (what it logically
+/// being negative, which causes overflow if `i` is a `usize` (what it logically
 /// should be).
 ///
 /// The outer loop starts from the second element. The inner loop repeatedly
@@ -114,7 +114,9 @@ where
 /// doesn't require the key to be held in the outer loop's stack frame. It
 /// terminates the inner for loop under the same condition that the CLRS version
 /// does (the key is *less* than the value at the current index).
-pub fn rev<T>(arr: &mut [T])
+///
+/// This version is notably slower in benchmarks than the CLRS version.
+pub fn shepmaster<T>(arr: &mut [T])
 where
     T: PartialOrd
 {
@@ -130,8 +132,10 @@ where
 }
 
 /// The CLRS implementation sorting in nonincreasing order
+///
+/// CLRS exercise 2.1-2
 #[doc(hidden)]
-pub fn clrs_rev<T>(arr: &mut [T])
+pub fn clrs_nonincreasing<T>(arr: &mut [T])
 where
     T: Copy + PartialOrd
 {
@@ -168,24 +172,24 @@ mod tests {
     }
 
     #[test]
-    fn test_rev() {
+    fn test_shepmaster() {
         let mut arr = [5, 2, 4, 6, 1, 3];
-        rev(&mut arr);
+        shepmaster(&mut arr);
         assert_eq!(arr, [1, 2, 3, 4, 5, 6]);
 
         let mut empty = [0; 0];
-        rev(&mut empty);
+        shepmaster(&mut empty);
         assert_eq!(empty, []);
 
         let mut single = [1];
-        rev(&mut single);
+        shepmaster(&mut single);
         assert_eq!(single, [1]);
     }
 
     #[test]
-    fn test_clrs_rev() {
+    fn test_clrs_nonincreasing() {
         let mut arr = [31, 41, 59, 26, 41, 58];
-        clrs_rev(&mut arr);
+        clrs_nonincreasing(&mut arr);
         assert_eq!(arr, [59, 58, 41, 41, 31, 26]);
     }
 }
