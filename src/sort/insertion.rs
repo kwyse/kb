@@ -4,7 +4,9 @@
 //! table, picking them up in their original unsorted order, and then inserting
 //! them into the correct order in hand.
 //!
-//! For example, say we have the following array:
+//! # Example
+//!
+//! Say we have the following array:
 //!
 //! ``` text
 //! [31, 41, 59, 26, 41, 58]
@@ -76,20 +78,21 @@
 /// right, until the correct position for the key is found. The key is then
 /// written in that position.
 ///
-/// Look invariant: at the start of each iteration of the for loop, the slice
-/// `arr[0..j]` consists of the elements originally in `arr[0..j]`, but in
-/// sorted order. This property must hold for initialization, maintenance and
-/// termination.
+/// # Loop invariant
 ///
-/// Initialization: this is the slice `[0..1]`, a slice of one element, which is
-/// sorted
+/// At the start of each iteration of the for loop, the slice `arr[0..j]`
+/// consists of the elements originally in `arr[0..j]`, but in sorted order.
+/// This property must hold for initialization, maintenance and termination.
 ///
-/// Maintenance: the for loop moves elements larger than `arr[j]` one space to
+/// *Initialization*: This is the slice `[0..1]`, a slice of one element, which
+/// is sorted.
+///
+/// *Maintenance*: The for loop moves elements larger than `arr[j]` one space to
 /// the right repeatedly until the correct space for `arr[j]` is found, at which
-/// point it inserts `arr[j]`, and the slice `arr[0..j]` is sorted
+/// point it inserts `arr[j]`, and the slice `arr[0..j]` is sorted.
 ///
-/// Termination: upon termination, `j == n`, so the slice `arr[0..j]` is the
-/// entire array, which is sorted
+/// *Termination*: Upon termination, `j == n`, so the slice `arr[0..j]` is the
+/// entire array, which is sorted.
 pub fn clrs<T>(arr: &mut [T])
 where
     T: Copy + PartialOrd
