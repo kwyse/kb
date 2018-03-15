@@ -16,7 +16,9 @@
 ///
 /// I need to think of a better abstraction for the bit vectors. Manipulating
 /// vectors of `u8`s is awkward and the expectation that they only contain `0`s
-/// and `1`s is brittle.
+/// and `1`s is brittle. It's also unfortunate that the return value is
+/// reversed. This could be solved by using a `VecDeque` instead, or by
+/// reversing the vector in place before returning it.
 pub fn add(a: &[u8], b: &[u8]) -> Result<Vec<u8>, &'static str> {
     if a.len() != b.len() {
         return Err("Bit vector lengths differ");
