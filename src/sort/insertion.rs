@@ -1,8 +1,17 @@
 //! Insertion sort
 //!
-//! Sorts elements in O(n²) time. Imagine having a set of cards face down on a
+//! Sorts elements in _O(n²)_ time. Imagine having a set of cards face down on a
 //! table, picking them up in their original unsorted order, and then inserting
 //! them into the correct order in hand.
+//!
+//! *Best case*: _O(n)_ for when the array is already sorted. The inner loop
+//! never executes because the key is always greater than or equal to the
+//! element before it.
+//!
+//! *Worst case*: _O(n²)_ for when the array is reverse sorted. The key is
+//! always less than or equal to the element before it. If it is less than,
+//! elements must be shifted. _O(n)_ elements must be shifted for the last
+//! element, if it is distinct. This happens in the inner loop.
 //!
 //! # Example
 //!
