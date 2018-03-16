@@ -8,6 +8,10 @@
 //! | 0 + 1 | 1 | 0 |
 //! | 1 + 0 | 1 | 0 |
 //! | 1 + 1 | 0 | 1 |
+//!
+//! The bit value is equal to (_a_ + _b_ + _carry_) % 2.
+//!
+//! The carry value is equal to (_a_ + _b_ + _carry_) / 2.
 
 /// My own implementation of CLRS exercise 2.1-4
 ///
@@ -57,6 +61,28 @@ pub fn add(a: &[u8], b: &[u8]) -> Result<Vec<u8>, &'static str> {
     Ok(ret)
 }
 
+/// The far more [elegant solution by
+/// gzc](https://github.com/gzc/CLRS/blob/master/C02-Getting-Started/2.1.md)
+///
+/// Uses clever modulus- and division-by-2 operations to work out the bit and
+/// carry values.
+pub fn gzc(a: &[u8], b: &[u8]) -> Result<Vec<u8>, &'static str> {
+    if a.len() != b.len() {
+        return Err("Bit vector lengths differ");
+    }
+
+    let mut ret = Vec::with_capacity(a.len() + 1);
+    let mut carry = 0u8;
+
+    for i in (0..a.len()).rev() {
+        ret.push((a[i] + b[i] + carry) % 2);
+        carry = (a[i] + b[i] + carry) / 2;
+    }
+
+    ret.push(carry);
+    Ok(ret)
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -68,5 +94,13 @@ mod tests {
 
         assert_eq!(add(&[], &[]), Ok(vec![]));
         assert_eq!(add(&[1, 1, 1], &[1, 0, 1]), Ok(vec![0, 0, 1, 1]));
+    }
+
+    #[test]
+    fn test_gzc() {
+        assert!(gzc(&[0], &[]).is_err());
+
+        assert_eq!(gzc(&[], &[]), Ok(vec![0]));
+        assert_eq!(gzc(&[1, 1, 1], &[1, 0, 0]), Ok(vec![1, 1, 0, 1]));
     }
 }
