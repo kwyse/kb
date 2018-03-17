@@ -17,11 +17,27 @@ use test::Bencher;
 
 lazy_static! {
     static ref INPUT: Vec<u8> = gen_u8_vec(1_000);
+    static ref SORTED_1000: [u8; 1000] = gen_sorted_1000();
+
+    static ref SORTED_1000_REV: Vec<u8> = gen_sorted_1000()
+        .iter().rev().map(Clone::clone).collect();
 }
 
 #[bench]
 fn insertion_sort_clrs_1000_u8(b: &mut Bencher) {
     let mut arr = INPUT.clone();
+    b.iter(|| clrs(&mut arr));
+}
+
+#[bench]
+fn insertion_sort_clrs_1000_u8_sorted(b: &mut Bencher) {
+    let mut arr = SORTED_1000.clone();
+    b.iter(|| clrs(&mut arr));
+}
+
+#[bench]
+fn insertion_sort_clrs_1000_u8_sorted_reversed(b: &mut Bencher) {
+    let mut arr = SORTED_1000_REV.clone();
     b.iter(|| clrs(&mut arr));
 }
 
@@ -45,4 +61,13 @@ fn gen_u8_vec(n: usize) -> Vec<u8> {
     }
 
     vec
+}
+
+fn gen_sorted_1000() -> [u8; 1000] {
+    let mut values = [0u8; 1000];
+    for i in 0..1000 {
+        values[i] = (i / 4) as u8;
+    }
+
+    values
 }
