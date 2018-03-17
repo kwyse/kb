@@ -50,9 +50,9 @@
                        [<span class='inner'>&#x2212;</span>]
                    </a>
                </span><a class='srclink' href='../../../src/kb/bit/manipulation.rs.html#23-25' title='goto source code'>[src]</a></span></h1>
-<pre class='rust fn'>pub fn set_rightmost_zero(n: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a></pre><div class='docblock'><p>Sets the rightmost <code>0</code> in the bit vector</p>
+<pre class='rust fn'>pub fn set_rightmost_zero(x: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a></pre><div class='docblock'><p>Sets the rightmost <code>0</code> in the bit vector</p>
 
-<p><em>n | (n + 1)</em></p>
+<p><em>x | (x + 1)</em></p>
 
 <pre class="rust rust-example-rendered">
 <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">set_rightmost_zero</span>(<span class="number">0b_1010_0111</span>), <span class="number">0b_1010_1111</span>);</pre>
