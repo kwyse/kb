@@ -10,12 +10,8 @@
     <title>kb::search::linear - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css"
-          id="mainThemeStyle">
-    
-    <link rel="stylesheet" type="text/css" href="../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
-    <script src="../../../storage.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
     
 
     
@@ -37,13 +33,6 @@
         <p class='location'>Module linear</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#functions">Functions</a></li></ul></div><p class='location'><a href='../../index.html'>kb</a>::<wbr><a href='../index.html'>search</a></p><script>window.sidebarCurrent = {name: 'linear', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
     </nav>
 
-    <div class="theme-picker">
-        <button id="theme-picker" aria-label="Pick another theme!">
-            <img src="../../../brush.svg" width="18" alt="Pick another theme!">
-        </button>
-        <div id="theme-choices"></div>
-    </div>
-    <script src="../../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -62,18 +51,26 @@
                    </a>
                </span><a class='srclink' href='../../../src/kb/search/linear.rs.html#1-66' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p>Linear search</p>
+
 <p>Searches for an element in O(n) time.</p>
+
 <p>On average, assuming an equal probability of occurrence of <em>1/n</em>, the
 average number of elements that need to be checked is</p>
+
 <p>1/n * (1 + 2 + ... + n)</p>
+
 <p>which is equivalent to (by derivation from <a href="https://en.wikipedia.org/wiki/1_%2B_2_%2B_3_%2B_4_%2B_%E2%8B%AF#Partial_sums_">partial
 sums</a>)</p>
+
 <p>(n + 1) / 2</p>
+
 <p>In the worst case, the target element does not exist in the array, meaning
 <em>n</em> checks have been made.</p>
-<h1 id="complexity" class="section-header"><a href="#complexity">Complexity</a></h1>
+
+<h1 id='complexity' class='section-header'><a href='#complexity'>Complexity</a></h1>
 <p><em>Average case</em>: <em>O(n)</em> because <em>n</em> checks have to be made, ignoring
 insignificant terms.</p>
+
 <p><em>Worst case</em>: <em>O(n)</em> because <em>n</em> checks have to be made.</p>
 </div><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
 <table>
@@ -82,7 +79,6 @@ insignificant terms.</p>
                                   title='fn kb::search::linear::linear'>linear</a></td>
                            <td class='docblock-short'>
                                 <p>My own implementation of CLRS exercise 2.1-3</p>
-
                            </td>
                        </tr></table></section>
     <section id='search' class="content hidden"></section>
@@ -97,22 +93,20 @@ insignificant terms.</p>
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt><kbd>?</kbd></dt>
+                    <dt>?</dt>
                     <dd>Show this help dialog</dd>
-                    <dt><kbd>S</kbd></dt>
+                    <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt><kbd>↑</kbd></dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt><kbd>↓</kbd></dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
-                    <dt><kbd>↹</kbd></dt>
+                    <dt>↹</dt>
                     <dd>Switch tab</dd>
-                    <dt><kbd>&#9166;</kbd></dt>
+                    <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
-                    <dt><kbd>+</kbd></dt>
-                    <dd>Expand all sections</dd>
-                    <dt><kbd>-</kbd></dt>
-                    <dd>Collapse all sections</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
