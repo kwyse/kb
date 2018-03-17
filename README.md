@@ -1,6 +1,8 @@
 # Knowledge Base
 
 [![Build Status](https://travis-ci.org/kwyse/kb.svg?branch=master)](https://travis-ci.org/kwyse/kb)
+[![Docs](https://img.shields.io/readthedocs/pip.svg)](https://kwyse.github.io/kb/kb/index.html)
+
 
 Because I want to know everything about everything.
 
