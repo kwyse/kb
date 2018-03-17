@@ -1,5 +1,11 @@
 //! Adding two bit vectors together
 //!
+//! The sum, _C_, of two bit vectors of length _n_, where each bit _C[i]_
+//! represents the value of _2ⁱ⁻¹_ for _i_ in _1...n+1_, is the sum of _A_,
+//! where each bit _A[j]_ represents the value of _2ʲ⁻¹_ for _j_ in _1...n_,
+//! plus the sum of _B_, where each bit _B[k]_ represents the value of _2ᵏ⁻¹_
+//! for _k_ in _1...n_.
+//!
 //! # Boolean addition
 //!
 //! | | No carry | Carry |
