@@ -11,3 +11,12 @@ cache: cargo
 script:
   - cargo build --verbose
   - cargo test --verbose
+  - cargo doc --verbose
+deploy:
+  provider: pages
+  local-dir: target/doc/kb
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  keep-history: true
+  on:
+    branch: master
