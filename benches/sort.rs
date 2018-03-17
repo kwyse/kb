@@ -10,6 +10,7 @@ extern crate rand;
 extern crate test;
 
 use kb::sort::insertion::*;
+use kb::sort::selection::*;
 
 use rand::Rng;
 use test::Bencher;
@@ -28,6 +29,12 @@ fn insertion_sort_clrs_1000_u8(b: &mut Bencher) {
 fn insertion_sort_shepmaster_1000_u8(b: &mut Bencher) {
     let mut arr = INPUT.clone();
     b.iter(|| shepmaster(&mut arr));
+}
+
+#[bench]
+fn selection_sort_me_1000_u8(b: &mut Bencher) {
+    let mut arr = INPUT.clone();
+    b.iter(|| selection(&mut arr));
 }
 
 fn gen_u8_vec(n: usize) -> Vec<u8> {
