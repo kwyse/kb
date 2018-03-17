@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["find_intersection","My own implementation to solve CRLS exercies 1.2-2 and 1.2-3"]]});

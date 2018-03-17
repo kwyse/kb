@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["is_power_of_two","Determines if a bit vector is a power of two or not"],["set_rightmost_zero","Sets the rightmost `0` in the bit vector"],["unset_rightmost_one","Unsets the rightmost `1` in the bit vector"]]});
