@@ -10,11 +10,8 @@
     <title>kb::bit::bitvec_addition - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
-    
-    <link rel="stylesheet" type="text/css" href="../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
-    <script src="../../../storage.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
     
 
     
@@ -36,13 +33,6 @@
         <p class='location'>Module bitvec_addition</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#functions">Functions</a></li></ul></div><p class='location'><a href='../../index.html'>kb</a>::<wbr><a href='../index.html'>bit</a></p><script>window.sidebarCurrent = {name: 'bitvec_addition', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
     </nav>
 
-    <div class="theme-picker">
-        <button id="theme-picker" aria-label="Pick another theme!">
-            <img src="../../../brush.svg" width="18" alt="Pick another theme!">
-        </button>
-        <div id="theme-choices"></div>
-    </div>
-    <script src="../../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -61,18 +51,49 @@
                    </a>
                </span><a class='srclink' href='../../../src/kb/bit/bitvec_addition.rs.html#1-112' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p>Adding two bit vectors together</p>
+
 <p>The sum, <em>C</em>, of two bit vectors of length <em>n</em>, where each bit <em>C[i]</em>
 represents the value of <em>2ⁱ⁻¹</em> for <em>i</em> in <em>1...n+1</em>, is the sum of <em>A</em>,
 where each bit <em>A[j]</em> represents the value of <em>2ʲ⁻¹</em> for <em>j</em> in <em>1...n</em>,
 plus the sum of <em>B</em>, where each bit <em>B[k]</em> represents the value of <em>2ᵏ⁻¹</em>
 for <em>k</em> in <em>1...n</em>.</p>
-<h1 id="boolean-addition" class="section-header"><a href="#boolean-addition">Boolean addition</a></h1><table><thead><tr><th> </th><th> No carry </th><th> Carry </th></tr></thead><tbody>
-<tr><td> 0 + 0 </td><td> 0 </td><td> 1 </td></tr>
-<tr><td> 0 + 1 </td><td> 1 </td><td> 0 </td></tr>
-<tr><td> 1 + 0 </td><td> 1 </td><td> 0 </td></tr>
-<tr><td> 1 + 1 </td><td> 0 </td><td> 1 </td></tr>
-</tbody></table>
+
+<h1 id='boolean-addition' class='section-header'><a href='#boolean-addition'>Boolean addition</a></h1>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>No carry</th>
+<th>Carry</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>0 + 0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0 + 1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1 + 0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1 + 1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
 <p>The bit value is equal to (<em>a</em> + <em>b</em> + <em>carry</em>) % 2.</p>
+
 <p>The carry value is equal to (<em>a</em> + <em>b</em> + <em>carry</em>) / 2.</p>
 </div><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
 <table>
@@ -81,7 +102,6 @@ for <em>k</em> in <em>1...n</em>.</p>
                                   title='fn kb::bit::bitvec_addition::add'>add</a></td>
                            <td class='docblock-short'>
                                 <p>My own implementation of CLRS exercise 2.1-4</p>
-
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -90,7 +110,6 @@ for <em>k</em> in <em>1...n</em>.</p>
                            <td class='docblock-short'>
                                 <p>The far more <a href="https://github.com/gzc/CLRS/blob/master/C02-Getting-Started/2.1.md">elegant solution by
 gzc</a></p>
-
                            </td>
                        </tr></table></section>
     <section id='search' class="content hidden"></section>
@@ -105,22 +124,20 @@ gzc</a></p>
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt><kbd>?</kbd></dt>
+                    <dt>?</dt>
                     <dd>Show this help dialog</dd>
-                    <dt><kbd>S</kbd></dt>
+                    <dt>S</dt>
                     <dd>Focus the search field</dd>
-                    <dt><kbd>↑</kbd></dt>
+                    <dt>↑</dt>
                     <dd>Move up in search results</dd>
-                    <dt><kbd>↓</kbd></dt>
+                    <dt>↓</dt>
                     <dd>Move down in search results</dd>
-                    <dt><kbd>↹</kbd></dt>
+                    <dt>↹</dt>
                     <dd>Switch tab</dd>
-                    <dt><kbd>&#9166;</kbd></dt>
+                    <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
-                    <dt><kbd>+</kbd></dt>
-                    <dd>Expand all sections</dd>
-                    <dt><kbd>-</kbd></dt>
-                    <dd>Collapse all sections</dd>
+                    <dt style="width:31px;">+ / -</dt>
+                    <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>
 
