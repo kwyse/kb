@@ -12,6 +12,18 @@ pub fn unset_rightmost_one(n: u8) -> u8 {
     n & (n - 1)
 }
 
+/// Sets the rightmost `0` in the bit vector
+///
+/// _n | (n + 1)_
+///
+/// ```
+/// # use kb::bit::manipulation::set_rightmost_zero;
+/// assert_eq!(set_rightmost_zero(0b_1010_0111), 0b_1010_1111);
+/// ```
+pub fn set_rightmost_zero(n: u8) -> u8 {
+    n | (n + 1)
+}
+
 /// Determines if a bit vector is a power of two or not
 ///
 /// _n & (n - 1) == 0_
