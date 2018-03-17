@@ -4,5 +4,6 @@
 //! wizardry.
 
 pub mod bit;
+pub mod equation;
 pub mod search;
 pub mod sort;
