@@ -1,6 +1,26 @@
 //! Linear search
 //!
 //! Searches for an element in O(n) time.
+//!
+//! On average, assuming an equal probability of occurrence of _1/n_, the
+//! average number of elements that need to be checked is
+//!
+//! 1/n * (1 + 2 + ... + n)
+//!
+//! which is equivalent to (by derivation from [partial
+//! sums](https://en.wikipedia.org/wiki/1_%2B_2_%2B_3_%2B_4_%2B_%E2%8B%AF#Partial_sums_))
+//!
+//! (n + 1) / 2
+//!
+//! In the worst case, the target element does not exist in the array, meaning
+//! _n_ checks have been made.
+//!
+//! # Complexity
+//!
+//! *Average case*: _O(n)_ because _n_ checks have to be made, ignoring
+//! insignificant terms.
+//!
+//! *Worst case*: _O(n)_ because _n_ checks have to be made.
 
 /// My own implementation of CLRS exercise 2.1-3
 ///
