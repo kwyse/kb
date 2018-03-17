@@ -2,9 +2,9 @@
 //!
 //! | Method | Time Complexity | Space Complexity |
 //! | --- | --- | --- |
-//! | Insertion Sort | O(n²) | O(1) |
-//! | Merge Sort | O(n log(n)) | O(n) |
-//! | Selection Sort | O(n²) | O(1) |
+//! | Insertion Sort | _O(n²)_ | _O(1)_ |
+//! | Merge Sort | _O(n log(n))_ | _O(n)_ |
+//! | Selection Sort | _O(n²)_ | _O(1)_ |
 
 pub mod insertion;
 pub mod selection;
