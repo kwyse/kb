@@ -14,9 +14,10 @@ script:
   - cargo doc --verbose
 deploy:
   provider: pages
-  local-dir: target/doc/kb
+  local-dir: target/doc
   skip-cleanup: true
   github-token: $GITHUB_TOKEN
   keep-history: true
+  verbose: true
   on:
     branch: master
