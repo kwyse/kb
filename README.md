@@ -18,15 +18,12 @@ amazing. It's the enabler that's underpinning the project.
 
 ## Why
 
-This stuff is *cool*. And I want to learn.
+Mind expansion.
 
 I have long fantasised about having my own personal encyclopedia of the sum of
-my knowledge. But my memory is fallible, my experience only sharpest in my
-current day-to-day work. Knowledge comes and goes with respect to my needs.
-
-The only way to solidify knowledge is to make it a companion in life. So I shall
-read. I'm on the hunt for mythical tomes of computational insight. These will
-form the backbone of the source material.
+my knowledge. I believe that the only way to attain that is to make
+knowledge gain a constant companion in life. That means lots of reading. Experts
+know best, so they will form the backbone of the source material.
 
 ## How
 
@@ -35,9 +32,11 @@ concepts from the following guiding lights:
 
 - Introduction to Algorithms
 - The Art of Computer Programming
+- Hacker's Delight
+- ...
+- [more books as I find them]
 
-These are just the books I have acquired copies of. I wish the list steadfast
-growth!
+These are just the books I have acquired. I'm on the hunt for more.
 
 ## When
 
@@ -46,6 +45,8 @@ it.
 
 ## Who
 
-You and I, though mostly I. I am happy to accept pull requests that correct
-typos, improve formatting, rectify factual inconsistencies, and the like.
-You'll have my gratitude for these. New material, however, is my responsibility.
+You and I, though mostly I. Whilst I'm grateful and happy to accept pull
+requests that correct typos, improve formatting, rectify factual
+inconsistencies, and the like, new material should come from me. After all, this
+is a personal learning experience that I'm making public in case others may find
+it useful.
