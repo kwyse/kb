@@ -7,4 +7,5 @@
 //! | Selection Sort | _O(n²)_ | _O(1)_ |
 
 pub mod insertion;
+pub mod merge;
 pub mod selection;
