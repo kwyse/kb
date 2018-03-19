@@ -38,6 +38,29 @@ pub fn clrs_merge_sort(mut values: &mut [u8], p: usize, r: usize) {
 /// implementation. It limits the sort to types that have a logical maximum
 /// value.
 ///
+/// # Loop invariant
+///
+/// At the start of the merge operation loop, `values[p..k]` contains the *k -
+/// p* smallest elements of `left[0..n1]` and `right[0..n2]`, in sorted order.
+/// Also, `left[i]` and `right[j]` are the smallest elements of their slices
+/// that have yet to be copied back into `values`.
+///
+/// *Initialization*: To begin with, *k = p*, so `values[p..k]` is empty, which
+/// contains the zero smallest elements of `left` and `right`. Also, `i` and `j`
+/// point to the first elements of their slices, which are the smallest elements
+/// because the slices are sorted.
+///
+/// *Maintenance*: If `left[i]` is less than `right[j]`, `left[i]` will be
+/// copied, meaning `values[p..k + 1]` will now contain the *k - p + 1*
+/// smallest elements. *k* and *i* are both incremented, reestablishing the
+/// loop invariant for the next iteration. This process is symmetric if `right`
+/// holds the next smallest element.
+///
+/// *Termination*: Upon termination, *k = r*, so `values[p..k]` is
+/// `values[p..r]`, and holds the *k - p* smallest elements in `left` and
+/// `right`. `left` and `right` are both pointing to their sentinel values,
+/// which are the smallest values in their respective slices.
+///
 /// # Example
 ///
 /// Imagine having two sorted sets of cards face up on a table, with the
