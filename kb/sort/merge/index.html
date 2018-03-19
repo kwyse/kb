@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="API documentation for the Rust `shepmaster` fn in crate `kb`.">
-    <meta name="keywords" content="rust, rustlang, rust-lang, shepmaster">
+    <meta name="description" content="API documentation for the Rust `merge` mod in crate `kb`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, merge">
 
-    <title>kb::sort::insertion::shepmaster - Rust</title>
+    <title>kb::sort::merge - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
@@ -17,7 +17,7 @@
     
     
 </head>
-<body class="rustdoc fn">
+<body class="rustdoc mod">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -30,7 +30,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'><a href='../../index.html'>kb</a>::<wbr><a href='../index.html'>sort</a>::<wbr><a href='index.html'>insertion</a></p><script>window.sidebarCurrent = {name: 'shepmaster', ty: 'fn', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <p class='location'>Module merge</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#functions">Functions</a></li></ul></div><p class='location'><a href='../../index.html'>kb</a>::<wbr><a href='../index.html'>sort</a></p><script>window.sidebarCurrent = {name: 'merge', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
     </nav>
 
     <nav class="sub">
@@ -45,22 +45,47 @@
     </nav>
 
     <section id='main' class="content">
-<h1 class='fqn'><span class='in-band'>Function <a href='../../index.html'>kb</a>::<wbr><a href='../index.html'>sort</a>::<wbr><a href='index.html'>insertion</a>::<wbr><a class="fn" href=''>shepmaster</a></span><span class='out-of-band'><span id='render-detail'>
+<h1 class='fqn'><span class='in-band'>Module <a href='../../index.html'>kb</a>::<wbr><a href='../index.html'>sort</a>::<wbr><a class="mod" href=''>merge</a></span><span class='out-of-band'><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../../../src/kb/sort/insertion.rs.html#133-146' title='goto source code'>[src]</a></span></h1>
-<pre class='rust fn'>pub fn shepmaster&lt;T&gt;(arr: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;mut [T]</a>) <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html" title="trait core::cmp::PartialOrd">PartialOrd</a>,&nbsp;</span></pre><div class='docblock'><p>The solution found in <a href="https://codereview.stackexchange.com/a/142070">this Code Review
-response</a></p>
+               </span><a class='srclink' href='../../../src/kb/sort/merge.rs.html#1-256' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>Merge sort</p>
 
-<p>This solution does a swap (multiple assignments) in the inner loop, but
-doesn&#39;t require the key to be held in the outer loop&#39;s stack frame. It also
-doesn&#39;t require the type parameter to be <code>Copy</code>. The termination condition
-for the inner loop is the same as the CLRS version (the key is <em>less</em> than
-the value at the current index).</p>
+<p>Sorts elements in <em>O(n log(n))</em> time, using a <em>divide-and-conquer</em> approach.</p>
 
-<p>This version is notably slower in benchmarks than the CLRS version.</p>
-</div></section>
+<p>This approach means splitting the problem into several subproblems that are
+similar to the original problem but smaller in size, solving the
+subproblems recursively, and then combining these solutions to create a
+solution for the original problem.</p>
+
+<p>For merge sort:</p>
+
+<p><em>Divide</em>: Divide the <em>n</em> element sequence into two subsequences of <em>n/2</em>
+elements each.</p>
+
+<p><em>Conquer</em>: Sort the two subsequences recursively using merge sort</p>
+
+<p><em>Combine</em>: Merge the two sorted subsequences to producing the sorted answer.</p>
+
+<p>Merge sort is called recursively until the subsequence to be sorted has a
+length of <em>one</em>, in which case it is sorted.</p>
+</div><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.clrs_merge.html"
+                                  title='fn kb::sort::merge::clrs_merge'>clrs_merge</a></td>
+                           <td class='docblock-short'>
+                                <p>CLRS version of the merge operation used by merge sort</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.clrs_merge_sort.html"
+                                  title='fn kb::sort::merge::clrs_merge_sort'>clrs_merge_sort</a></td>
+                           <td class='docblock-short'>
+                                <p>The solution presented in CLRS</p>
+                           </td>
+                       </tr></table></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>

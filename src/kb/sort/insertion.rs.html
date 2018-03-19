@@ -252,12 +252,14 @@
 <span id="206">206</span>
 <span id="207">207</span>
 <span id="208">208</span>
+<span id="209">209</span>
 </pre><pre class="rust ">
 <span class="doccomment">//! Insertion sort</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! Sorts elements in _O(n²)_ time. Imagine having a set of cards face down on a</span>
-<span class="doccomment">//! table, picking them up in their original unsorted order, and then inserting</span>
-<span class="doccomment">//! them into the correct order in hand.</span>
+<span class="doccomment">//! Sorts elements in _O(n²)_ time, using an *incremental* approach. Imagine</span>
+<span class="doccomment">//! having a set of cards face down on a table, picking them up in their</span>
+<span class="doccomment">//! original unsorted order, and then inserting them into the correct order in</span>
+<span class="doccomment">//! hand.</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! *Best case*: _O(n)_ for when the array is already sorted. The inner loop</span>
 <span class="doccomment">//! never executes because the key is always greater than or equal to the</span>

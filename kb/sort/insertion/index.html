@@ -49,12 +49,13 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../../../src/kb/sort/insertion.rs.html#1-208' title='goto source code'>[src]</a></span></h1>
+               </span><a class='srclink' href='../../../src/kb/sort/insertion.rs.html#1-209' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p>Insertion sort</p>
 
-<p>Sorts elements in <em>O(n²)</em> time. Imagine having a set of cards face down on a
-table, picking them up in their original unsorted order, and then inserting
-them into the correct order in hand.</p>
+<p>Sorts elements in <em>O(n²)</em> time, using an <em>incremental</em> approach. Imagine
+having a set of cards face down on a table, picking them up in their
+original unsorted order, and then inserting them into the correct order in
+hand.</p>
 
 <p><em>Best case</em>: <em>O(n)</em> for when the array is already sorted. The inner loop
 never executes because the key is always greater than or equal to the

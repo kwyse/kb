@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["insertion","Insertion sort"],["selection","Selection sort"]]});
+initSidebarItems({"mod":[["insertion","Insertion sort"],["merge","Merge sort"],["selection","Selection sort"]]});
