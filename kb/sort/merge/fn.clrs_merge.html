@@ -49,7 +49,7 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../../../src/kb/sort/merge.rs.html#201-226' title='goto source code'>[src]</a></span></h1>
+               </span><a class='srclink' href='../../../src/kb/sort/merge.rs.html#224-249' title='goto source code'>[src]</a></span></h1>
 <pre class='rust fn'>pub fn clrs_merge(values: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;mut [</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u8.html">u8</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a>, p: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>, q: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>, r: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>)</pre><div class='docblock'><p>CLRS version of the merge operation used by merge sort</p>
 
 <p>Merges two sorted subsequences in <em>O(n)</em> time, where <em>n = r - p</em>.</p>
@@ -57,6 +57,28 @@
 <p>This implementation includes a sentinel value to simplify the
 implementation. It limits the sort to types that have a logical maximum
 value.</p>
+
+<h1 id='loop-invariant' class='section-header'><a href='#loop-invariant'>Loop invariant</a></h1>
+<p>At the start of the merge operation loop, <code>values[p..k]</code> contains the <em>k -
+p</em> smallest elements of <code>left[0..n1]</code> and <code>right[0..n2]</code>, in sorted order.
+Also, <code>left[i]</code> and <code>right[j]</code> are the smallest elements of their slices
+that have yet to be copied back into <code>values</code>.</p>
+
+<p><em>Initialization</em>: To begin with, <em>k = p</em>, so <code>values[p..k]</code> is empty, which
+contains the zero smallest elements of <code>left</code> and <code>right</code>. Also, <code>i</code> and <code>j</code>
+point to the first elements of their slices, which are the smallest elements
+because the slices are sorted.</p>
+
+<p><em>Maintenance</em>: If <code>left[i]</code> is less than <code>right[j]</code>, <code>left[i]</code> will be
+copied, meaning <code>values[p..k + 1]</code> will now contain the <em>k - p + 1</em>
+smallest elements. <em>k</em> and <em>i</em> are both incremented, reestablishing the
+loop invariant for the next iteration. This process is symmetric if <code>right</code>
+holds the next smallest element.</p>
+
+<p><em>Termination</em>: Upon termination, <em>k = r</em>, so <code>values[p..k]</code> is
+<code>values[p..r]</code>, and holds the <em>k - p</em> smallest elements in <code>left</code> and
+<code>right</code>. <code>left</code> and <code>right</code> are both pointing to their sentinel values,
+which are the smallest values in their respective slices.</p>
 
 <h1 id='example' class='section-header'><a href='#example'>Example</a></h1>
 <p>Imagine having two sorted sets of cards face up on a table, with the
