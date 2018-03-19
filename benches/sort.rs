@@ -10,6 +10,7 @@ extern crate rand;
 extern crate test;
 
 use kb::sort::insertion::*;
+use kb::sort::merge::*;
 use kb::sort::selection::*;
 
 use rand::Rng;
@@ -45,6 +46,12 @@ fn insertion_sort_clrs_1000_u8_sorted_reversed(b: &mut Bencher) {
 fn insertion_sort_shepmaster_1000_u8(b: &mut Bencher) {
     let mut arr = INPUT.clone();
     b.iter(|| shepmaster(&mut arr));
+}
+
+#[bench]
+fn merge_sort_clrs_1000_u8(b: &mut Bencher) {
+    let mut arr = INPUT.clone();
+    b.iter(|| clrs_merge_sort(&mut arr, 0, 1000));
 }
 
 #[bench]

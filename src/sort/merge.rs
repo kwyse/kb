@@ -3,7 +3,7 @@
 //! Sorts elements in _O(n log(n))_ time, using a *divide-and-conquer* approach.
 
 /// The solution presented in CLRS
-pub fn clrs_merge_sort(mut values: &mut [i64], p: usize, r: usize) {
+pub fn clrs_merge_sort(mut values: &mut [u8], p: usize, r: usize) {
     if r > 0 && p < r - 1 {
         let q = (p + r) / 2;
 
@@ -16,27 +16,27 @@ pub fn clrs_merge_sort(mut values: &mut [i64], p: usize, r: usize) {
 /// CLRS version of the merge operation used by merge sort
 ///
 /// Merges two sorted subsequences in _O(n)_ time.
-pub fn clrs_merge(values: &mut [i64], p: usize, q: usize, r: usize) {
-    use std::i64;
+pub fn clrs_merge(values: &mut [u8], p: usize, q: usize, r: usize) {
+    use std::u8;
 
     let n1 = q - p;
     let n2 = r - q;
 
     let mut left = Vec::with_capacity(n1 + 1);
     for i in 0..n1 { left.push(values[p + i]); }
-    left.push(i64::MAX);
+    left.push(u8::MAX);
 
     let mut right = Vec::with_capacity(n2 + 1);
     for j in 0..n2 { right.push(values[q + j]); }
-    right.push(i64::MAX);
+    right.push(u8::MAX);
 
     let mut i = 0;
     let mut j = 0;
     for k in p..r {
-        if left[i] <= right[j] {
+        if i < n1 && left[i] < right[j] {
             values[k] = left[i];
             i += 1;
-        } else {
+        } else if j < n2 {
             values[k] = right[j];
             j += 1;
         }
