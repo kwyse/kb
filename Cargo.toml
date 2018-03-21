@@ -3,6 +3,9 @@ name = "kb"
 version = "0.1.0"
 authors = ["Krishan Wyse <kwysek@gmail.com>"]
 
+[dependencies]
+num = "0.1.42"
+
 [dev-dependencies]
 lazy_static = "1.0.0"
 rand = "0.4.2"

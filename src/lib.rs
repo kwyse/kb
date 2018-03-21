@@ -3,6 +3,8 @@
 //! My personal assortment of algorithms, data structures, and computational
 //! wizardry.
 
+extern crate num;
+
 pub mod bit;
 pub mod equation;
 pub mod math;
