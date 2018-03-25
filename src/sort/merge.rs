@@ -20,7 +20,7 @@
 //! length of *one*, in which case it is sorted.
 
 /// The solution presented in CLRS
-pub fn clrs_merge_sort(mut values: &mut [u8], p: usize, r: usize) {
+pub fn clrs_merge_sort(mut values: &mut [f64], p: usize, r: usize) {
     if r > 0 && p < r - 1 {
         let q = (p + r) / 2;
 
@@ -221,27 +221,24 @@ pub fn clrs_merge_sort(mut values: &mut [u8], p: usize, r: usize) {
 ///   +---+---+---+---+---+       +---+---+---+---+---+
 ///                     i                           j
 /// ```
-pub fn clrs_merge(values: &mut [u8], p: usize, q: usize, r: usize) {
-    use std::u8;
+pub fn clrs_merge(values: &mut [f64], p: usize, q: usize, r: usize) {
+    use std::f64;
 
-    let n1 = q - p;
-    let n2 = r - q;
+    let mut left = Vec::with_capacity(q - p + 1);
+    for i in 0..left.capacity() - 1 { left.push(values[p + i]); }
+    left.push(f64::MAX);
 
-    let mut left = Vec::with_capacity(n1 + 1);
-    for i in 0..n1 { left.push(values[p + i]); }
-    left.push(u8::MAX);
-
-    let mut right = Vec::with_capacity(n2 + 1);
-    for j in 0..n2 { right.push(values[q + j]); }
-    right.push(u8::MAX);
+    let mut right = Vec::with_capacity(r - q + 1);
+    for j in 0..right.capacity() - 1 { right.push(values[q + j]); }
+    right.push(f64::MAX);
 
     let mut i = 0;
     let mut j = 0;
     for k in p..r {
-        if i < n1 && left[i] < right[j] {
+        if left[i] < right[j] {
             values[k] = left[i];
             i += 1;
-        } else if j < n2 {
+        } else {
             values[k] = right[j];
             j += 1;
         }
@@ -258,22 +255,22 @@ mod tests {
         clrs_merge_sort(&mut values, 0, 0);
         assert_eq!(values, []);
 
-        let mut values = [1];
+        let mut values = [1.0];
         clrs_merge_sort(&mut values, 0, 1);
-        assert_eq!(values, [1]);
+        assert_eq!(values, [1.0]);
 
-        let mut values = [31, 41, 59, 26, 41, 58];
+        let mut values = [31.0, 41.0, 59.0, 26.0, 41.0, 58.0];
         let len = values.len();
         clrs_merge_sort(&mut values, 0, len);
-        assert_eq!(values, [26, 31, 41, 41, 58, 59]);
+        assert_eq!(values, [26.0, 31.0, 41.0, 41.0, 58.0, 59.0]);
 
-        let mut values = [5, 2, 4, 6, 1, 3];
+        let mut values = [5.0, 2.0, 4.0, 6.0, 1.0, 3.0];
         let len = values.len();
         clrs_merge_sort(&mut values, 0, len);
-        assert_eq!(values, [1, 2, 3, 4, 5, 6]);
+        assert_eq!(values, [1.0, 2.0, 3.0, 4.0, 5.0, 6.0]);
 
-        let mut values = [2, 4, 5, 7, 1, 2, 3, 6];
+        let mut values = [2.0, 4.0, 5.0, 7.0, 1.0, 2.0, 3.0, 6.0];
         clrs_merge(&mut values, 0, 4, 8);
-        assert_eq!(values, [1, 2, 2, 3, 4, 5, 6, 7]);
+        assert_eq!(values, [1.0, 2.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0]);
     }
 }

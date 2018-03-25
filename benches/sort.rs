@@ -50,7 +50,7 @@ fn insertion_sort_shepmaster_1000_u8(b: &mut Bencher) {
 
 #[bench]
 fn merge_sort_clrs_1000_u8(b: &mut Bencher) {
-    let mut arr = INPUT.clone();
+    let mut arr = INPUT.clone().iter().map(|n| *n as f64).collect::<Vec<_>>();
     b.iter(|| clrs_merge_sort(&mut arr, 0, 1000));
 }
 
