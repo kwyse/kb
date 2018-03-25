@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["gcd",""],["sum_first_n","Sum the first n numbers"]]});
+initSidebarItems({"mod":[["gcd","Find the greatest common divisor"],["sum_first_n","Sum the first n numbers"]]});
