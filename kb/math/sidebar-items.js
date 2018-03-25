@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["sum_first_n","Sum the first n numbers"]]});
+initSidebarItems({"mod":[["gcd",""],["sum_first_n","Sum the first n numbers"]]});
