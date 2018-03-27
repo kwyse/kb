@@ -62,6 +62,19 @@ use std::mem;
 /// *Effectiveness*: All operations are sufficiently basic such that they are
 /// exact and can be done in constant time.
 ///
+/// # Computational method
+///
+/// The following is functional representation of the algorithm in Haskell.
+///
+/// ```text
+/// input(m, n) = normal(m, n, 0, 1)
+/// terminate(n) = n
+///
+/// normal(m, n, r, 1) = normal(m, n, (rem m n), 2)
+/// normal(m, n, r, 2) = if r == 0 then terminate(n) else normal(m, n, r, 3)
+/// normal(m, n, p, 3) = normal(n, p, p, 1)
+/// ```
+///
 /// # Tests
 ///
 /// ```
@@ -70,6 +83,7 @@ use std::mem;
 /// assert_eq!(euclid(252_u32, 105), 21);
 /// assert_eq!(euclid(6_u32, 3), 3);
 /// assert_eq!(euclid(6_u32, 4), 2);
+/// assert_eq!(euclid(2166_u32, 6099), 57);
 /// ```
 pub fn euclid<N>(mut m: N, mut n: N) -> N
 where
