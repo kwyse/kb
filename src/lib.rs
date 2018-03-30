@@ -10,3 +10,4 @@ pub mod equation;
 pub mod math;
 pub mod search;
 pub mod sort;
+pub mod string;
