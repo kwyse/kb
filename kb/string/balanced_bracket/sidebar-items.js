@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["is_balanced","Checks if a string of brackets is balanced"]],"struct":[["Brackets","A byte buffer that only contains ASCII brackets"]]});

@@ -10,8 +10,11 @@
     <title>kb::bit::manipulation - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
+    <script src="../../../storage.js"></script>
     
 
     
@@ -33,6 +36,13 @@
         <p class='location'>Module manipulation</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#functions">Functions</a></li></ul></div><p class='location'><a href='../../index.html'>kb</a>::<wbr><a href='../index.html'>bit</a></p><script>window.sidebarCurrent = {name: 'manipulation', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -58,6 +68,7 @@
                                   title='fn kb::bit::manipulation::is_exp2_minus_one'>is_exp2_minus_one</a></td>
                            <td class='docblock-short'>
                                 <p>Determines if a bit vector is of the form <em>2ⁿ - 1</em> (or zero)</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -65,6 +76,7 @@
                                   title='fn kb::bit::manipulation::is_power_of_two'>is_power_of_two</a></td>
                            <td class='docblock-short'>
                                 <p>Determines if a bit vector is a power of two (or zero)</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -72,6 +84,7 @@
                                   title='fn kb::bit::manipulation::set_rightmost_zero'>set_rightmost_zero</a></td>
                            <td class='docblock-short'>
                                 <p>Sets the rightmost <code>0</code> in the bit vector</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -79,6 +92,7 @@
                                   title='fn kb::bit::manipulation::set_trailing_zeros'>set_trailing_zeros</a></td>
                            <td class='docblock-short'>
                                 <p>Sets the trailing <code>0</code>s in the bit vector</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -86,6 +100,7 @@
                                   title='fn kb::bit::manipulation::unset_rightmost_one'>unset_rightmost_one</a></td>
                            <td class='docblock-short'>
                                 <p>Unsets the rightmost <code>1</code> in the bit vector</p>
+
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -93,6 +108,7 @@
                                   title='fn kb::bit::manipulation::unset_trailing_ones'>unset_trailing_ones</a></td>
                            <td class='docblock-short'>
                                 <p>Unsets the trailing <code>1</code>s in the bit vector</p>
+
                            </td>
                        </tr></table></section>
     <section id='search' class="content hidden"></section>
@@ -107,20 +123,22 @@
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 

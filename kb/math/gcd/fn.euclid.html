@@ -10,8 +10,11 @@
     <title>kb::math::gcd::euclid - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
-    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
+    
+    <link rel="stylesheet" type="text/css" href="../../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
+    <script src="../../../storage.js"></script>
     
 
     
@@ -33,6 +36,13 @@
         <p class='location'><a href='../../index.html'>kb</a>::<wbr><a href='../index.html'>math</a>::<wbr><a href='index.html'>gcd</a></p><script>window.sidebarCurrent = {name: 'euclid', ty: 'fn', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
+    <div class="theme-picker">
+        <button id="theme-picker" aria-label="Pick another theme!">
+            <img src="../../../brush.svg" width="18" alt="Pick another theme!">
+        </button>
+        <div id="theme-choices"></div>
+    </div>
+    <script src="../../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -49,20 +59,16 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../../../src/kb/math/gcd.rs.html#74-87' title='goto source code'>[src]</a></span></h1>
-<pre class='rust fn'>pub fn euclid&lt;N&gt;(m: N, n: N) -&gt; N <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;N: <a class="trait" href="../../../num_traits/sign/trait.Unsigned.html" title="trait num_traits::sign::Unsigned">Unsigned</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html" title="trait core::marker::Copy">Copy</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html" title="trait core::cmp::PartialOrd">PartialOrd</a>,&nbsp;</span></pre><div class='docblock'><p>Euclid&#39;s algorithm</p>
-
+               </span><a class='srclink' href='../../../src/kb/math/gcd.rs.html#88-101' title='goto source code'>[src]</a></span></h1>
+<pre class='rust fn'>pub fn euclid&lt;N&gt;(m: N, n: N) -&gt; N <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;N: <a class="trait" href="../../../num_traits/sign/trait.Unsigned.html" title="trait num_traits::sign::Unsigned">Unsigned</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html" title="trait core::marker::Copy">Copy</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html" title="trait core::cmp::PartialOrd">PartialOrd</a>,&nbsp;</span></pre><div class='docblock'><p>Euclid's algorithm</p>
 <p><em>Inputs</em>: Two positive integers, <em>m</em> and <em>n</em></p>
-
 <ol>
 <li>Find the remainder of <em>m</em> and <em>n</em>, such that <em>0 ≤ r &lt; n</em></li>
-<li>If it&#39;s zero, terminate with <em>n</em></li>
+<li>If it's zero, terminate with <em>n</em></li>
 <li>Else, reduce by setting <em>m ← n, n ← r</em> and go back to step 1</li>
 </ol>
-
 <p><em>Outputs</em>: <em>n</em>, the greatest common divisor of <em>m</em> and <em>n</em></p>
-
-<h1 id='example' class='section-header'><a href='#example'>Example</a></h1>
+<h1 id="example" class="section-header"><a href="#example">Example</a></h1>
 <pre><code class="language-text">m = 119, n = 544
 r ← 119, m ← 544, n = 119
 r ← 68, m ← 119, n ← 68
@@ -71,8 +77,7 @@ r ← 17, m ← 51, n ← 17
 r ← 0
 terminate with 17
 </code></pre>
-
-<h1 id='proof' class='section-header'><a href='#proof'>Proof</a></h1>
+<h1 id="proof" class="section-header"><a href="#proof">Proof</a></h1>
 <p>After step one, <em>m = qn + r</em>. If <em>r</em> is zero, <em>m</em> is a multiple of <em>n</em>, and
 <em>n</em> is the greatest common divisor of the two. If not, note that that a
 number that divides <em>m</em> and <em>n</em> must also divide <em>r</em> (because <em>m - qn = r</em>)
@@ -80,38 +85,39 @@ and any number that divides <em>n</em> and <em>r</em> must divide <em>m</em> (be
 m</em>), so the set of common divisors for <em>m</em> and <em>n</em> is the same as that of
 <em>n</em> and <em>r</em>, as is the value of the greatest common divisor. Hence, step
 three does not change the answer to the original problem.</p>
-
-<h1 id='invariants' class='section-header'><a href='#invariants'>Invariants</a></h1>
+<h1 id="invariants" class="section-header"><a href="#invariants">Invariants</a></h1>
 <p>If <em>m &lt; n</em> originally, the quotient in step one will always be zero, so the
 two values will be swapped. It can be more efficient to do this in advance:</p>
-
 <p>Ensure <em>m ≥ n</em>: if <em>m &lt; n</em>, <em>m ↔ n</em></p>
-
-<h1 id='features' class='section-header'><a href='#features'>Features</a></h1>
+<h1 id="features" class="section-header"><a href="#features">Features</a></h1>
 <p>The algorithm satisfies five essential features:</p>
-
 <p><em>Finiteness</em>: After step one, <em>r &lt; n</em>. If <em>r</em> is not zero, <em>n</em> decreases
 the next time step one is encountered. A decreasing sequence of positive
 integers will eventually terminate.</p>
-
 <p><em>Definiteness</em>: Undefined behaviour, such as division by zero, is not
 encountered because the inputs must be positive integers. After step one,
 <em>r</em> is a nonnegative integer that must be nonzero to encounter step three,
 so <em>m</em> and <em>n</em> will remain positive integers as required.</p>
-
 <p><em>Inputs</em>: <em>m</em> and <em>n</em>, where <em>m</em> ∈ ℕ⁺ and <em>n</em> ∈ ℕ⁺</p>
-
 <p><em>Outputs</em>: <em>n</em> in step two, the greatest common divisor of the inputs</p>
-
 <p><em>Effectiveness</em>: All operations are sufficiently basic such that they are
 exact and can be done in constant time.</p>
+<h1 id="computational-method" class="section-header"><a href="#computational-method">Computational method</a></h1>
+<p>The following is functional representation of the algorithm in Haskell.</p>
+<pre><code class="language-text">input(m, n) = normal(m, n, 0, 1)
+terminate(n) = n
 
-<h1 id='tests' class='section-header'><a href='#tests'>Tests</a></h1>
+normal(m, n, r, 1) = normal(m, n, (rem m n), 2)
+normal(m, n, r, 2) = if r == 0 then terminate(n) else normal(m, n, r, 3)
+normal(m, n, p, 3) = normal(n, p, p, 1)
+</code></pre>
+<h1 id="tests" class="section-header"><a href="#tests">Tests</a></h1>
 <pre class="rust rust-example-rendered">
 <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">euclid</span>(<span class="number">119_u32</span>, <span class="number">544</span>), <span class="number">17</span>);
 <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">euclid</span>(<span class="number">252_u32</span>, <span class="number">105</span>), <span class="number">21</span>);
 <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">euclid</span>(<span class="number">6_u32</span>, <span class="number">3</span>), <span class="number">3</span>);
-<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">euclid</span>(<span class="number">6_u32</span>, <span class="number">4</span>), <span class="number">2</span>);</pre>
+<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">euclid</span>(<span class="number">6_u32</span>, <span class="number">4</span>), <span class="number">2</span>);
+<span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">euclid</span>(<span class="number">2166_u32</span>, <span class="number">6099</span>), <span class="number">57</span>);</pre>
 </div></section>
     <section id='search' class="content hidden"></section>
 
@@ -125,20 +131,22 @@ exact and can be done in constant time.</p>
                 <h2>Keyboard Shortcuts</h2>
 
                 <dl>
-                    <dt>?</dt>
+                    <dt><kbd>?</kbd></dt>
                     <dd>Show this help dialog</dd>
-                    <dt>S</dt>
+                    <dt><kbd>S</kbd></dt>
                     <dd>Focus the search field</dd>
-                    <dt>↑</dt>
+                    <dt><kbd>↑</kbd></dt>
                     <dd>Move up in search results</dd>
-                    <dt>↓</dt>
+                    <dt><kbd>↓</kbd></dt>
                     <dd>Move down in search results</dd>
-                    <dt>↹</dt>
+                    <dt><kbd>↹</kbd></dt>
                     <dd>Switch tab</dd>
-                    <dt>&#9166;</dt>
+                    <dt><kbd>&#9166;</kbd></dt>
                     <dd>Go to active search result</dd>
-                    <dt style="width:31px;">+ / -</dt>
-                    <dd>Collapse/expand all sections</dd>
+                    <dt><kbd>+</kbd></dt>
+                    <dd>Expand all sections</dd>
+                    <dt><kbd>-</kbd></dt>
+                    <dd>Collapse all sections</dd>
                 </dl>
             </div>
 
