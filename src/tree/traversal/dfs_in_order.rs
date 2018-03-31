@@ -1,11 +1,14 @@
 //! Depth-first, in-order tree traversal
 
-use super::super::Node;
+use super::super::BinaryNode;
 
-// Traverses the nodes iteratively
-pub fn traverse_iterative<'a, T, V>(root: &Node<'a, T>, mut visit: V)
+/// Traverses the nodes iteratively
+///
+/// If traversing a binary search tree, `visit` will yield nodes in sorted
+/// order.
+pub fn traverse_iterative<'a, T, F>(root: &BinaryNode<'a, T>, mut visit: F)
 where
-    V: FnMut(&Node<T>)
+    F: FnMut(&BinaryNode<T>)
 {
     let mut stack = Vec::new();
     let mut node = Some(root);
@@ -28,13 +31,13 @@ mod tests {
 
     #[test]
     fn test_traversal_iterative() {
-        let one = Node { data: 1, left: None, right: None };
-        let three = Node { data: 3, left: None, right: None };
-        let two = Node { data: 2, left: Some(&one), right: Some(&three) };
-        let five = Node { data: 5, left: None, right: None };
-        let seven = Node { data: 7, left: None, right: None };
-        let six = Node { data: 6, left: Some(&five), right: Some(&seven) };
-        let four = Node { data: 4, left: Some(&two), right: Some(&six) };
+        let one = BinaryNode { data: 1, left: None, right: None };
+        let three = BinaryNode { data: 3, left: None, right: None };
+        let two = BinaryNode { data: 2, left: Some(&one), right: Some(&three) };
+        let five = BinaryNode { data: 5, left: None, right: None };
+        let seven = BinaryNode { data: 7, left: None, right: None };
+        let six = BinaryNode { data: 6, left: Some(&five), right: Some(&seven) };
+        let four = BinaryNode { data: 4, left: Some(&two), right: Some(&six) };
 
         let mut traversed_nodes = Vec::with_capacity(7);
         traverse_iterative(&four, |node| traversed_nodes.push(node.data));
