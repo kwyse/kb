@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `src/lib.rs`.">
+    <meta name="description" content="Source to the Rust file `src/tree/mod.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
-    <title>lib.rs.html -- source</title>
+    <title>mod.rs.html -- source</title>
 
-    <link rel="stylesheet" type="text/css" href="../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
     
-    <link rel="stylesheet" type="text/css" href="../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../main.css" id="themeStyle">
-    <script src="../../storage.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../dark.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
+    <script src="../../../storage.js"></script>
     
 
     
@@ -38,11 +38,11 @@
 
     <div class="theme-picker">
         <button id="theme-picker" aria-label="Pick another theme!">
-            <img src="../../brush.svg" width="18" alt="Pick another theme!">
+            <img src="../../../brush.svg" width="18" alt="Pick another theme!">
         </button>
         <div id="theme-choices"></div>
     </div>
-    <script src="../../theme.js"></script>
+    <script src="../../../theme.js"></script>
     <nav class="sub">
         <form class="search-form js-only">
             <div class="search-container">
@@ -69,20 +69,20 @@
 <span id="13">13</span>
 <span id="14">14</span>
 </pre><pre class="rust ">
-<span class="doccomment">//! Knowledge Base</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! My personal assortment of algorithms, data structures, and computational</span>
-<span class="doccomment">//! wizardry.</span>
+<span class="doccomment">//! Hierarchical tree structures</span>
 
-<span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">num</span>;
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">traversal</span>;
 
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">bit</span>;
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">equation</span>;
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">math</span>;
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">search</span>;
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">sort</span>;
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">string</span>;
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">tree</span>;
+<span class="doccomment">/// The node of a tree with only two possible children</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// Each node is composed of a value and references to child nodes. No reference</span>
+<span class="doccomment">/// can be duplicated and no reference can point to the root node of the tree</span>
+<span class="doccomment">/// (cycles are disallowed). There can only be one root node.</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">BinaryNode</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">T</span>: <span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="ident">data</span>: <span class="ident">T</span>,
+    <span class="ident">left</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">BinaryNode</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">T</span><span class="op">&gt;&gt;</span>,
+    <span class="ident">right</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">BinaryNode</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">T</span><span class="op">&gt;&gt;</span>,
+}
 </pre>
 </section>
     <section id='search' class="content hidden"></section>
@@ -142,10 +142,10 @@
     
 
     <script>
-        window.rootPath = "../../";
+        window.rootPath = "../../../";
         window.currentCrate = "kb";
     </script>
-    <script src="../../main.js"></script>
-    <script defer src="../../search-index.js"></script>
+    <script src="../../../main.js"></script>
+    <script defer src="../../../search-index.js"></script>
 </body>
 </html>
