@@ -1,1 +1,1 @@
-initSidebarItems({"fn":[["traverse_iterative","Traverses the nodes iteratively"]]});
+initSidebarItems({"fn":[["traverse_iterative","Traverses the nodes iteratively"],["traverse_recursive","Traverses the nodes recursively"]]});
