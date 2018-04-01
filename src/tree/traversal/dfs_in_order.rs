@@ -17,10 +17,9 @@ where
         if let Some(inner) = node {
             stack.push(inner);
             node = inner.left;
-        } else {
-            node = stack.pop();
-            visit(node.unwrap());
-            node = node.unwrap().right;
+        } else if let Some(inner) = stack.pop() {
+            visit(inner);
+            node = inner.right;
         }
     }
 }
