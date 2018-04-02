@@ -59,7 +59,7 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../../../src/kb/sort/merge.rs.html#1-276' title='goto source code'>[src]</a></span></h1>
+               </span><a class='srclink' href='../../../src/kb/sort/merge.rs.html#1-368' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'><p>Merge sort</p>
 <p>Sorts elements in <em>O(n log(n))</em> time, using a <em>divide-and-conquer</em> approach.</p>
 <p>This approach means splitting the problem into several subproblems that are
@@ -73,6 +73,76 @@ elements each.</p>
 <p><em>Combine</em>: Merge the two sorted subsequences to producing the sorted answer.</p>
 <p>Merge sort is called recursively until the subsequence to be sorted has a
 length of <em>one</em>, in which case it is sorted.</p>
+<h1 id="recurrence" class="section-header"><a href="#recurrence">Recurrence</a></h1>
+<p>A recurrence of a divide and conquer problem, <em>T(n)</em> of input size <em>n</em>, is
+defined by:</p>
+<pre><code class="language-text">O(1)                    # if n ≤ c
+aT(n/b) + D(n) + C(n)   # otherwise
+</code></pre>
+<p>where <em>c</em> is a constant that is small enough that the solution is
+straightforward and it takes constant time, <em>a</em> is the number of
+subproblems when we divide the problem, each <em>1/b</em> the size of the original,
+<em>D(n)</em> is the time taken to divide the problem into subproblems, and <em>C(n)</em>
+is the time taken to combine the solutions to the subproblems into the
+original problem.</p>
+<p>For merge sort, both <em>a</em> and <em>b</em> are 2, the divide step is a middle index
+calculation that takes constant time, and the combine step takes <em>O(n)</em> time
+because because it has to traverse the subarray. <em>O(n) + O(1) = O(n)</em>, and
+the conquer step recursively solves two subproblems of size <em>n/2</em>, so it
+contributes <em>2T(n/2)</em>. A merge of one element is done in constant time.This
+gives the recurrence for merge sort:</p>
+<pre><code class="language-text">O(1)            # if n = 1
+2T(n/2) + O(n)  # if n &gt; 1
+</code></pre>
+<p>The recurrence can prove merge sort has a running time of <em>O(n lg(n))</em>. Let
+<em>c</em> be the time required to solve problems of size 1 and let us assume that
+<em>n</em> is a power of 2. We can rewrite the recurrence as:</p>
+<pre><code class="language-text">c               # if n = 1
+2T(n/2) + cn    # if n &gt; 1
+</code></pre>
+<p><img src="http://algoparc.ics.hawaii.edu/%7Enodari/teaching/f15/Notes/Topic-02/recurrence-tree-mergesort-3.jpg" alt="Merge sort recurrence" /></p>
+<p>The recursion tree shows that the cost of each level is <em>cn</em>. If <em>n</em> is the
+number of leaves on the tree, then <em>lg(n) + 1</em> is the depth of tree:</p>
+<pre><code class="language-text">n = 1 =&gt; lg(1) + 1 = 1
+n = 2 =&gt; lg(2) + 1 = 2
+n = 4 =&gt; lg(4) + 1 = 3
+...
+</code></pre>
+<p>If we have <em>2ⁱ</em> leaves, we get <em>lg(2ⁱ) + 1 = i + 1</em>. The next input size
+to consider, <em>2ⁱ⁺¹</em>, has one more level in its recursion tree, so its
+number of leaves is <em>lg(2ⁱ⁺¹) + 1 = (i + 1) + 1</em>.</p>
+<p>If we have <em>lg(n) + 1</em> levels, each costing <em>cn</em>, the total cost is
+<em>cn(lg(n) + 1) = cn(lg(n)) + cn</em>. Ignoring the constant factor and the
+low-order term, we get <em>O(n lg(n))</em>.</p>
+<h1 id="bottom-up-progression" class="section-header"><a href="#bottom-up-progression">Bottom-up progression</a></h1>
+<p>Merge sort on an input array of ⟨3, 41, 52, 26, 38, 57, 9, 49⟩.</p>
+<pre><code class="language-text">+--------+-------+-------+--------+--------+-------+-------+--------+
+|        |       |       |        |        |       |       |        |
+|    3   |    9  |   26  |   38   |   41   |   49  |   52  |   57   |
+|        |       |       |        |        |       |       |        |
++--------+-------+-^-----+--------+--------+-----^-+-------+--------+
+                   |                             |
+                   |                             |
++-------+-------+--+----+-------+   +-------+----+--+-------+-------+
+|       |       |       |       |   |       |       |       |       |
+|   3   |  26   |  41   |  52   |   |   9   |   38  |   49  |   57  |
+|       |       |       |       |   |       |       |       |       |
++-------+--^----+----^--+-------+   +-------+--^----+----^--+-------+
+           |         |                         |         |
+           |         |                         |         |
++------+---+--+   +--+---+------+   +------+---+--+   +--+---+------+
+|      |      |   |      |      |   |      |      |   |      |      |
+|   3  |  41  |   |  26  |  52  |   |  38  |  57  |   |   9  |  49  |
+|      |      |   |      |      |   |      |      |   |      |      |
++--^---+---^--+   +--^---+---^--+   +--^---+---^--+   +--^---+---^--+
+   |       |         |       |         |       |         |       |
+   |       |         |       |         |       |         |       |
++--+-+   +-+--+   +--+-+   +-+--+   +--+-+   +-+--+   +--+-+   +-+--+
+|    |   |    |   |    |   |    |   |    |   |    |   |    |   |    |
+|  3 |   | 41 |   | 52 |   | 26 |   | 38 |   | 57 |   |  9 |   | 49 |
+|    |   |    |   |    |   |    |   |    |   |    |   |    |   |    |
++----+   +----+   +----+   +----+   +----+   +----+   +----+   +----+
+</code></pre>
 </div><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
 <table>
                        <tr class=' module-item'>
