@@ -337,6 +337,11 @@ pub fn clrs_merge(values: &mut [f64], p: usize, q: usize, r: usize) {
     }
 }
 
+/// My own implementation of merge sort
+///
+/// I'm not all that happy with this. I've spent a while mulling over various
+/// iterator and C-like indexing versions. Nothing was particularly clean. This
+/// needs to be improved.
 pub fn krw_merge_sort(values: &mut [f64]) {
     if values.len() > 1 {
         let mid = values.len() / 2;
