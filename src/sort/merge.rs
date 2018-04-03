@@ -337,6 +337,42 @@ pub fn clrs_merge(values: &mut [f64], p: usize, q: usize, r: usize) {
     }
 }
 
+pub fn krw_merge_sort(values: &mut [f64]) {
+    if values.len() > 1 {
+        let mid = values.len() / 2;
+        krw_merge_sort(&mut values[..mid]);
+        krw_merge_sort(&mut values[mid..]);
+
+        let l = values[..mid].to_vec();
+        let r = values[mid..].to_vec();
+
+        let mut i = 0;
+        let mut j = 0;
+        let mut k = 0;
+        while k < values.len() {
+            if let Some(ll) = l.get(i) {
+                if let Some(rr) = r.get(j) {
+                    if ll < rr {
+                        values[k] = *ll;
+                        i += 1;
+                    } else {
+                        values[k] = *rr;
+                        j += 1;
+                    }
+                } else {
+                    values[k] = *ll;
+                    i += 1;
+                }
+            } else if let Some(rr) = r.get(j) {
+                values[k] = *rr;
+                j += 1;
+            }
+
+            k += 1;
+        }
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -363,6 +399,36 @@ mod tests {
 
         let mut values = [2.0, 4.0, 5.0, 7.0, 1.0, 2.0, 3.0, 6.0];
         clrs_merge(&mut values, 0, 4, 8);
+        assert_eq!(values, [1.0, 2.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0]);
+    }
+
+    #[test]
+    fn test_krw_merge_sort() {
+        let mut values = [];
+        krw_merge_sort(&mut values);
+        assert_eq!(values, []);
+
+        let mut values = [1.0];
+        krw_merge_sort(&mut values);
+        assert_eq!(values, [1.0]);
+
+        let mut values = [31.0, 41.0, 59.0, 26.0, 41.0, 58.0];
+        let len = values.len();
+        krw_merge_sort(&mut values);
+        assert_eq!(values, [26.0, 31.0, 41.0, 41.0, 58.0, 59.0]);
+
+        let mut values = [5.0, 2.0, 4.0, 6.0, 1.0, 3.0];
+        let len = values.len();
+        krw_merge_sort(&mut values);
+        assert_eq!(values, [1.0, 2.0, 3.0, 4.0, 5.0, 6.0]);
+
+        let mut values = [5.0, 2.0, 4.0, 4.0, 3.0];
+        let len = values.len();
+        krw_merge_sort(&mut values);
+        assert_eq!(values, [2.0, 3.0, 4.0, 4.0, 5.0]);
+
+        let mut values = [2.0, 4.0, 5.0, 7.0, 1.0, 2.0, 3.0, 6.0];
+        krw_merge_sort(&mut values);
         assert_eq!(values, [1.0, 2.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0]);
     }
 }
