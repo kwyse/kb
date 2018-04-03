@@ -343,32 +343,21 @@ pub fn krw_merge_sort(values: &mut [f64]) {
         krw_merge_sort(&mut values[..mid]);
         krw_merge_sort(&mut values[mid..]);
 
-        let l = values[..mid].to_vec();
-        let r = values[mid..].to_vec();
+        let left = values[..mid].to_vec();
+        let mut left_iter = left.iter().peekable();
+        let right = values[mid..].to_vec();
+        let mut right_iter = right.iter().peekable();
 
-        let mut i = 0;
-        let mut j = 0;
-        let mut k = 0;
-        while k < values.len() {
-            if let Some(ll) = l.get(i) {
-                if let Some(rr) = r.get(j) {
-                    if ll < rr {
-                        values[k] = *ll;
-                        i += 1;
-                    } else {
-                        values[k] = *rr;
-                        j += 1;
-                    }
-                } else {
-                    values[k] = *ll;
-                    i += 1;
-                }
-            } else if let Some(rr) = r.get(j) {
-                values[k] = *rr;
-                j += 1;
+        for k in values.iter_mut() {
+            if left_iter.peek().is_some() && left_iter.peek() < right_iter.peek() {
+                *k = *left_iter.next().unwrap();
+            } else if let Some(r) = right_iter.next() {
+                *k = *r;
+            } else if let Some(l) = left_iter.next() {
+                *k = *l;
+            } else {
+                unreachable!();
             }
-
-            k += 1;
         }
     }
 }
@@ -413,17 +402,14 @@ mod tests {
         assert_eq!(values, [1.0]);
 
         let mut values = [31.0, 41.0, 59.0, 26.0, 41.0, 58.0];
-        let len = values.len();
         krw_merge_sort(&mut values);
         assert_eq!(values, [26.0, 31.0, 41.0, 41.0, 58.0, 59.0]);
 
         let mut values = [5.0, 2.0, 4.0, 6.0, 1.0, 3.0];
-        let len = values.len();
         krw_merge_sort(&mut values);
         assert_eq!(values, [1.0, 2.0, 3.0, 4.0, 5.0, 6.0]);
 
         let mut values = [5.0, 2.0, 4.0, 4.0, 3.0];
-        let len = values.len();
         krw_merge_sort(&mut values);
         assert_eq!(values, [2.0, 3.0, 4.0, 4.0, 5.0]);
 
