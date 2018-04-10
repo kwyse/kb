@@ -120,6 +120,34 @@ where
     }
 }
 
+/// Same as CLRS but with a reduced number of comparisons made
+///
+/// In the CLRS inner loop, we compare each element in the sorted section of the
+/// slice with the key. In this version, we use a binary search to find the
+/// correct insertion point, thereby reducing the number of comparisons to
+/// logarithmic time. We must still shift the elements over in linear time, so
+/// this doesn't improve the algorithm's overall running time.
+pub fn clrs_bsearch<T>(values: &mut [T])
+where
+    T: Copy + Ord
+{
+    use super::super::search::binary;
+
+    for j in 1..values.len() {
+        let key = values[j];
+        let mut i = j;
+
+        if let Some(adj) = binary::search_closest(&values[0..i], &key) {
+            while i > adj {
+                values[i] = values[i - 1];
+                i -= 1
+            }
+        }
+
+        values[i] = key;
+    }
+}
+
 /// The solution found in [this Code Review
 /// response](https://codereview.stackexchange.com/a/142070)
 ///
@@ -182,6 +210,21 @@ mod tests {
 
         let mut single = [1];
         clrs(&mut single);
+        assert_eq!(single, [1]);
+    }
+
+    #[test]
+    fn test_clrs_bsearch() {
+        let mut arr = [5, 2, 4, 6, 1, 3];
+        clrs_bsearch(&mut arr);
+        assert_eq!(arr, [1, 2, 3, 4, 5, 6]);
+
+        let mut empty = [0; 0];
+        clrs_bsearch(&mut empty);
+        assert_eq!(empty, []);
+
+        let mut single = [1];
+        clrs_bsearch(&mut single);
         assert_eq!(single, [1]);
     }
 

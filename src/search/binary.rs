@@ -23,6 +23,39 @@ where
     None
 }
 
+/// Returns the index of a target value, or the following index if not found
+///
+/// The ugly if/else at the end is required to set the index to the _following_
+/// index if the current mid is _less than_ the target value. The return index
+/// must always be equal to or greater than the target, or `None`.
+pub fn search_closest<T>(values: &[T], target: &T) -> Option<usize>
+where
+    T: Ord
+{
+    if values.is_empty() { return None }
+
+    let (mut lo, mut hi) = (0, values.len());
+    let mut mid = (lo + hi) / 2;
+    while lo < hi {
+        mid = (lo + hi) / 2;
+        match values[mid].cmp(target) {
+            Ordering::Equal => return Some(mid),
+            Ordering::Less => lo = mid + 1,
+            Ordering::Greater => hi = mid,
+        }
+    }
+
+    if &values[mid] < target {
+        if let Some(_) = values.get(mid + 1) {
+            Some(mid + 1)
+        } else {
+            None
+        }
+    } else {
+        Some(mid)
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
