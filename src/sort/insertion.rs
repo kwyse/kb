@@ -127,6 +127,8 @@ where
 /// correct insertion point, thereby reducing the number of comparisons to
 /// logarithmic time. We must still shift the elements over in linear time, so
 /// this doesn't improve the algorithm's overall running time.
+///
+/// This is for CLRS exercise 2.3-6
 pub fn clrs_bsearch<T>(values: &mut [T])
 where
     T: Copy + Ord

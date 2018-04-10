@@ -66,4 +66,13 @@ mod tests {
         assert_eq!(search(&[1, 2, 3], &3), Some(2));
         assert_eq!(search(&[1, 2, 3], &4), None);
     }
+
+    #[test]
+    fn test_search_closest() {
+        assert_eq!(search_closest(&[], &3), None);
+        assert_eq!(search_closest(&[1, 2, 3], &3), Some(2));
+        assert_eq!(search_closest(&[1, 2, 3], &4), None);
+        assert_eq!(search_closest(&[1, 3, 4], &2), Some(1));
+        assert_eq!(search_closest(&[1, 2, 4], &3), Some(2));
+    }
 }
