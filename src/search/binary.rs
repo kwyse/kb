@@ -5,8 +5,8 @@
 
 use std::cmp::Ordering;
 
-/// Checks if an element appears in a sorted slice
-pub fn search<T>(values: &[T], target: &T) -> bool
+/// Returns the index of a target value if it appears in a sorted slice
+pub fn search<T>(values: &[T], target: &T) -> Option<usize>
 where
     T: Ord
 {
@@ -14,13 +14,13 @@ where
     while lo < hi {
         let mid = (lo + hi) / 2;
         match values[mid].cmp(target) {
-            Ordering::Equal => return true,
+            Ordering::Equal => return Some(mid),
             Ordering::Less => lo = mid + 1,
             Ordering::Greater => hi = mid,
         }
     }
 
-    false
+    None
 }
 
 #[cfg(test)]
@@ -29,8 +29,8 @@ mod tests {
 
     #[test]
     fn test_search() {
-        assert!(!search(&[], &3));
-        assert!(search(&[1, 2, 3], &3));
-        assert!(!search(&[1, 2, 3], &4));
+        assert_eq!(search(&[], &3), None);
+        assert_eq!(search(&[1, 2, 3], &3), Some(2));
+        assert_eq!(search(&[1, 2, 3], &4), None);
     }
 }
