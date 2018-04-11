@@ -10,5 +10,6 @@ pub mod equation;
 pub mod math;
 pub mod search;
 pub mod sort;
+pub mod sortsearch;
 pub mod string;
 pub mod tree;
