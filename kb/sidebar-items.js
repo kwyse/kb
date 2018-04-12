@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["bit","Bit manipulation"],["equation","Equation solving"],["math","Mathmatical identities"],["search","Searching functions"],["sort","Sorting functions"],["string","String handling"],["tree","Hierarchical tree structures"]]});
+initSidebarItems({"mod":[["bit","Bit manipulation"],["equation","Equation solving"],["math","Mathmatical identities"],["search","Searching functions"],["sort","Sorting functions"],["sortsearch","Algorithms that require sorting and then seaching"],["string","String handling"],["tree","Hierarchical tree structures"]]});

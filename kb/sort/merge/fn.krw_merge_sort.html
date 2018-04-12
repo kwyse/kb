@@ -59,8 +59,8 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../../../src/kb/sort/merge.rs.html#345-368' title='goto source code'>[src]</a></span></h1>
-<pre class='rust fn'>pub fn krw_merge_sort(values: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;mut [</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a><a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">]</a>)</pre><div class='docblock'><p>My own implementation of merge sort</p>
+               </span><a class='srclink' href='../../../src/kb/sort/merge.rs.html#345-371' title='goto source code'>[src]</a></span></h1>
+<pre class='rust fn'>pub fn krw_merge_sort&lt;T&gt;(values: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;mut [T]</a>) <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html" title="trait core::marker::Copy">Copy</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html" title="trait core::cmp::PartialOrd">PartialOrd</a>,&nbsp;</span></pre><div class='docblock'><p>My own implementation of merge sort</p>
 <p>I'm not all that happy with this. I've spent a while mulling over various
 iterator and C-like indexing versions. Nothing was particularly clean. This
 needs to be improved.</p>

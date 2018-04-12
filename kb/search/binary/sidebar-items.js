@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["search","Returns the index of a target value if it appears in a sorted slice"],["search_closest","Returns the index of a target value, or the following index if not found"]]});

@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `src/search/mod.rs`.">
-    <meta name="keywords" content="rust, rustlang, rust-lang">
+    <meta name="description" content="API documentation for the Rust `find_sum` fn in crate `kb`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, find_sum">
 
-    <title>mod.rs.html -- source</title>
+    <title>kb::sortsearch::find_sum::find_sum - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
@@ -20,7 +20,7 @@
     
     
 </head>
-<body class="rustdoc source">
+<body class="rustdoc fn">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -33,7 +33,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        
+        <p class='location'><a href='../../index.html'>kb</a>::<wbr><a href='../index.html'>sortsearch</a>::<wbr><a href='index.html'>find_sum</a></p><script>window.sidebarCurrent = {name: 'find_sum', ty: 'fn', relpath: ''};</script><script defer src="sidebar-items.js"></script>
     </nav>
 
     <div class="theme-picker">
@@ -54,17 +54,20 @@
         </form>
     </nav>
 
-    <section id='main' class="content"><pre class="line-numbers"><span id="1">1</span>
-<span id="2">2</span>
-<span id="3">3</span>
-<span id="4">4</span>
-</pre><pre class="rust ">
-<span class="doccomment">//! Searching functions</span>
-
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">binary</span>;
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">linear</span>;
-</pre>
-</section>
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Function <a href='../../index.html'>kb</a>::<wbr><a href='../index.html'>sortsearch</a>::<wbr><a href='index.html'>find_sum</a>::<wbr><a class="fn" href=''>find_sum</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../../src/kb/sortsearch/find_sum.rs.html#15-28' title='goto source code'>[src]</a></span></h1>
+<pre class='rust fn'>pub fn find_sum&lt;T&gt;(set: <a class="struct" href="../../../kb/sortsearch/find_sum/struct.VecSet.html" title="struct kb::sortsearch::find_sum::VecSet">VecSet</a>&lt;T&gt;, target: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>T) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../../num_traits/trait.Num.html" title="trait num_traits::Num">Num</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html" title="trait core::marker::Copy">Copy</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/cmp/trait.Ord.html" title="trait core::cmp::Ord">Ord</a>,&nbsp;</span></pre><div class='docblock'><p>Determins if the sum of any two numbers in a set is equal to a target</p>
+<p>First we sort the set so that the binary search that occurs later runs in
+logarithmic time. For each element in the set, we then calculate its
+complement, and do a binary search for that complement.</p>
+<p>Sorting takes <em>O(n lg(n))</em> time, the iteration through the set takes <em>O(n)</em>
+time, and for each element we search in <em>O(lg(n))</em> time, hence we end up
+with <em>O(n lg(n) + n lg(n))</em>, which simplifies to <em>O(n lg(n))</em> running time.</p>
+</div></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>

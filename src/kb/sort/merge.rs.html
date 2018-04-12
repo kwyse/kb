@@ -479,6 +479,9 @@
 <span id="423">423</span>
 <span id="424">424</span>
 <span id="425">425</span>
+<span id="426">426</span>
+<span id="427">427</span>
+<span id="428">428</span>
 </pre><pre class="rust ">
 <span class="doccomment">//! Merge sort</span>
 <span class="doccomment">//!</span>
@@ -824,7 +827,10 @@
 <span class="doccomment">/// I&#39;m not all that happy with this. I&#39;ve spent a while mulling over various</span>
 <span class="doccomment">/// iterator and C-like indexing versions. Nothing was particularly clean. This</span>
 <span class="doccomment">/// needs to be improved.</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">krw_merge_sort</span>(<span class="ident">values</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> [<span class="ident">f64</span>]) {
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">krw_merge_sort</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>(<span class="ident">values</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> [<span class="ident">T</span>])
+<span class="kw">where</span>
+    <span class="ident">T</span>: <span class="ident">Copy</span> <span class="op">+</span> <span class="ident">PartialOrd</span>
+{
     <span class="kw">if</span> <span class="ident">values</span>.<span class="ident">len</span>() <span class="op">&gt;</span> <span class="number">1</span> {
         <span class="kw">let</span> <span class="ident">mid</span> <span class="op">=</span> <span class="ident">values</span>.<span class="ident">len</span>() <span class="op">/</span> <span class="number">2</span>;
         <span class="ident">krw_merge_sort</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">values</span>[..<span class="ident">mid</span>]);
@@ -880,7 +886,7 @@
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">test_krw_merge_sort</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">values</span> <span class="op">=</span> [];
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">values</span> <span class="op">=</span> [<span class="number">0u8</span>; <span class="number">0</span>];
         <span class="ident">krw_merge_sort</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">values</span>);
         <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">values</span>, []);
 

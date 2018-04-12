@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `src/search/mod.rs`.">
-    <meta name="keywords" content="rust, rustlang, rust-lang">
+    <meta name="description" content="API documentation for the Rust `binary` mod in crate `kb`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, binary">
 
-    <title>mod.rs.html -- source</title>
+    <title>kb::search::binary - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
     <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
@@ -20,7 +20,7 @@
     
     
 </head>
-<body class="rustdoc source">
+<body class="rustdoc mod">
     <!--[if lte IE 8]>
     <div class="warning">
         This old browser is unsupported and will most likely display funky
@@ -33,7 +33,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        
+        <p class='location'>Module binary</p><div class="sidebar-elems"><div class="block items"><ul><li><a href="#functions">Functions</a></li></ul></div><p class='location'><a href='../../index.html'>kb</a>::<wbr><a href='../index.html'>search</a></p><script>window.sidebarCurrent = {name: 'binary', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script></div>
     </nav>
 
     <div class="theme-picker">
@@ -54,17 +54,33 @@
         </form>
     </nav>
 
-    <section id='main' class="content"><pre class="line-numbers"><span id="1">1</span>
-<span id="2">2</span>
-<span id="3">3</span>
-<span id="4">4</span>
-</pre><pre class="rust ">
-<span class="doccomment">//! Searching functions</span>
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Module <a href='../../index.html'>kb</a>::<wbr><a href='../index.html'>search</a>::<wbr><a class="mod" href=''>binary</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../../src/kb/search/binary.rs.html#1-78' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>Binary search</p>
+<p>The search space is halved after every iteration, hence we have a running
+time of <em>O(lg(n))</em>.</p>
+</div><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.search.html"
+                                  title='fn kb::search::binary::search'>search</a></td>
+                           <td class='docblock-short'>
+                                <p>Returns the index of a target value if it appears in a sorted slice</p>
 
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">binary</span>;
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">linear</span>;
-</pre>
-</section>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.search_closest.html"
+                                  title='fn kb::search::binary::search_closest'>search_closest</a></td>
+                           <td class='docblock-short'>
+                                <p>Returns the index of a target value, or the following index if not found</p>
+
+                           </td>
+                       </tr></table></section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>

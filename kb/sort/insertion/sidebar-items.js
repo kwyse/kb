@@ -1,1 +1,1 @@
-initSidebarItems({"fn":[["clrs","The solution presented in CLRS"],["shepmaster","The solution found in this Code Review response"]]});
+initSidebarItems({"fn":[["clrs","The solution presented in CLRS"],["clrs_bsearch","Same as CLRS but with a reduced number of comparisons made"],["shepmaster","The solution found in this Code Review response"]]});

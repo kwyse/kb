@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["linear","Linear search"]]});
+initSidebarItems({"mod":[["binary","Binary search"],["linear","Linear search"]]});
