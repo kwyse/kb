@@ -10,10 +10,11 @@
     <title>kb::sortsearch::find_sum::find_sum - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle">
     <script src="../../../storage.js"></script>
     
 
@@ -33,7 +34,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'><a href='../../index.html'>kb</a>::<wbr><a href='../index.html'>sortsearch</a>::<wbr><a href='index.html'>find_sum</a></p><script>window.sidebarCurrent = {name: 'find_sum', ty: 'fn', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <div class="sidebar-elems"><p class='location'><a href='../../index.html'>kb</a>::<wbr><a href='../index.html'>sortsearch</a>::<wbr><a href='index.html'>find_sum</a></p><script>window.sidebarCurrent = {name: 'find_sum', ty: 'fn', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
     <div class="theme-picker">
@@ -54,13 +55,11 @@
         </form>
     </nav>
 
-    <section id='main' class="content">
-<h1 class='fqn'><span class='in-band'>Function <a href='../../index.html'>kb</a>::<wbr><a href='../index.html'>sortsearch</a>::<wbr><a href='index.html'>find_sum</a>::<wbr><a class="fn" href=''>find_sum</a></span><span class='out-of-band'><span id='render-detail'>
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Function <a href='../../index.html'>kb</a>::<wbr><a href='../index.html'>sortsearch</a>::<wbr><a href='index.html'>find_sum</a>::<wbr><a class="fn" href=''>find_sum</a></span><span class='out-of-band'><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../../../src/kb/sortsearch/find_sum.rs.html#15-28' title='goto source code'>[src]</a></span></h1>
-<pre class='rust fn'>pub fn find_sum&lt;T&gt;(set: <a class="struct" href="../../../kb/sortsearch/find_sum/struct.VecSet.html" title="struct kb::sortsearch::find_sum::VecSet">VecSet</a>&lt;T&gt;, target: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>T) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../../num_traits/trait.Num.html" title="trait num_traits::Num">Num</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html" title="trait core::marker::Copy">Copy</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/cmp/trait.Ord.html" title="trait core::cmp::Ord">Ord</a>,&nbsp;</span></pre><div class='docblock'><p>Determins if the sum of any two numbers in a set is equal to a target</p>
+               </span><a class='srclink' href='../../../src/kb/sortsearch/find_sum.rs.html#15-28' title='goto source code'>[src]</a></span></h1><pre class='rust fn'>pub fn find_sum&lt;T&gt;(set: <a class="struct" href="../../../kb/sortsearch/find_sum/struct.VecSet.html" title="struct kb::sortsearch::find_sum::VecSet">VecSet</a>&lt;T&gt;, target: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>T) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="../../../num_traits/trait.Num.html" title="trait num_traits::Num">Num</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html" title="trait core::marker::Copy">Copy</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/cmp/trait.Ord.html" title="trait core::cmp::Ord">Ord</a>,&nbsp;</span></pre><div class='docblock'><p>Determins if the sum of any two numbers in a set is equal to a target</p>
 <p>First we sort the set so that the binary search that occurs later runs in
 logarithmic time. For each element in the set, we then calculate its
 complement, and do a binary search for that complement.</p>

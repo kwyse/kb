@@ -10,10 +10,11 @@
     <title>find_intersection.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle">
     <script src="../../../storage.js"></script>
     
 
@@ -170,8 +171,8 @@
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">test_find_intersection</span>() {
-        <span class="kw">let</span> <span class="ident">a</span> <span class="op">=</span> <span class="op">|</span>_: <span class="ident">f64</span><span class="op">|</span> <span class="number">2.0</span>;
-        <span class="kw">let</span> <span class="ident">b</span> <span class="op">=</span> <span class="op">|</span>_: <span class="ident">f64</span><span class="op">|</span> <span class="number">4.0</span>;
+        <span class="kw">let</span> <span class="ident">a</span> <span class="op">=</span> <span class="op">|</span><span class="kw">_</span>: <span class="ident">f64</span><span class="op">|</span> <span class="number">2.0</span>;
+        <span class="kw">let</span> <span class="ident">b</span> <span class="op">=</span> <span class="op">|</span><span class="kw">_</span>: <span class="ident">f64</span><span class="op">|</span> <span class="number">4.0</span>;
         <span class="kw">let</span> (<span class="ident">first</span>, <span class="ident">second</span>) <span class="op">=</span> <span class="ident">find_intersection</span>(<span class="ident">a</span>, <span class="ident">b</span>);
         <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">first</span>.<span class="ident">is_none</span>());
         <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">second</span>.<span class="ident">is_none</span>());

@@ -10,10 +10,11 @@
     <title>kb::sort::insertion::clrs_bsearch - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle">
     <script src="../../../storage.js"></script>
     
 
@@ -33,7 +34,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'><a href='../../index.html'>kb</a>::<wbr><a href='../index.html'>sort</a>::<wbr><a href='index.html'>insertion</a></p><script>window.sidebarCurrent = {name: 'clrs_bsearch', ty: 'fn', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <div class="sidebar-elems"><p class='location'><a href='../../index.html'>kb</a>::<wbr><a href='../index.html'>sort</a>::<wbr><a href='index.html'>insertion</a></p><script>window.sidebarCurrent = {name: 'clrs_bsearch', ty: 'fn', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
     <div class="theme-picker">
@@ -54,13 +55,11 @@
         </form>
     </nav>
 
-    <section id='main' class="content">
-<h1 class='fqn'><span class='in-band'>Function <a href='../../index.html'>kb</a>::<wbr><a href='../index.html'>sort</a>::<wbr><a href='index.html'>insertion</a>::<wbr><a class="fn" href=''>clrs_bsearch</a></span><span class='out-of-band'><span id='render-detail'>
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Function <a href='../../index.html'>kb</a>::<wbr><a href='../index.html'>sort</a>::<wbr><a href='index.html'>insertion</a>::<wbr><a class="fn" href=''>clrs_bsearch</a></span><span class='out-of-band'><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../../../src/kb/sort/insertion.rs.html#132-151' title='goto source code'>[src]</a></span></h1>
-<pre class='rust fn'>pub fn clrs_bsearch&lt;T&gt;(values: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;mut [T]</a>) <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html" title="trait core::marker::Copy">Copy</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/cmp/trait.Ord.html" title="trait core::cmp::Ord">Ord</a>,&nbsp;</span></pre><div class='docblock'><p>Same as CLRS but with a reduced number of comparisons made</p>
+               </span><a class='srclink' href='../../../src/kb/sort/insertion.rs.html#132-151' title='goto source code'>[src]</a></span></h1><pre class='rust fn'>pub fn clrs_bsearch&lt;T&gt;(values: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;mut [T]</a>) <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html" title="trait core::marker::Copy">Copy</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/cmp/trait.Ord.html" title="trait core::cmp::Ord">Ord</a>,&nbsp;</span></pre><div class='docblock'><p>Same as CLRS but with a reduced number of comparisons made</p>
 <p>In the CLRS inner loop, we compare each element in the sorted section of the
 slice with the key. In this version, we use a binary search to find the
 correct insertion point, thereby reducing the number of comparisons to

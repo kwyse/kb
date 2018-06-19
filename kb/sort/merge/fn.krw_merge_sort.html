@@ -10,10 +10,11 @@
     <title>kb::sort::merge::krw_merge_sort - Rust</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle">
     <script src="../../../storage.js"></script>
     
 
@@ -33,7 +34,7 @@
     <nav class="sidebar">
         <div class="sidebar-menu">&#9776;</div>
         
-        <p class='location'><a href='../../index.html'>kb</a>::<wbr><a href='../index.html'>sort</a>::<wbr><a href='index.html'>merge</a></p><script>window.sidebarCurrent = {name: 'krw_merge_sort', ty: 'fn', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        <div class="sidebar-elems"><p class='location'><a href='../../index.html'>kb</a>::<wbr><a href='../index.html'>sort</a>::<wbr><a href='index.html'>merge</a></p><script>window.sidebarCurrent = {name: 'krw_merge_sort', ty: 'fn', relpath: ''};</script><script defer src="sidebar-items.js"></script></div>
     </nav>
 
     <div class="theme-picker">
@@ -54,13 +55,11 @@
         </form>
     </nav>
 
-    <section id='main' class="content">
-<h1 class='fqn'><span class='in-band'>Function <a href='../../index.html'>kb</a>::<wbr><a href='../index.html'>sort</a>::<wbr><a href='index.html'>merge</a>::<wbr><a class="fn" href=''>krw_merge_sort</a></span><span class='out-of-band'><span id='render-detail'>
+    <section id='main' class="content"><h1 class='fqn'><span class='in-band'>Function <a href='../../index.html'>kb</a>::<wbr><a href='../index.html'>sort</a>::<wbr><a href='index.html'>merge</a>::<wbr><a class="fn" href=''>krw_merge_sort</a></span><span class='out-of-band'><span id='render-detail'>
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../../../src/kb/sort/merge.rs.html#345-371' title='goto source code'>[src]</a></span></h1>
-<pre class='rust fn'>pub fn krw_merge_sort&lt;T&gt;(values: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;mut [T]</a>) <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html" title="trait core::marker::Copy">Copy</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html" title="trait core::cmp::PartialOrd">PartialOrd</a>,&nbsp;</span></pre><div class='docblock'><p>My own implementation of merge sort</p>
+               </span><a class='srclink' href='../../../src/kb/sort/merge.rs.html#345-371' title='goto source code'>[src]</a></span></h1><pre class='rust fn'>pub fn krw_merge_sort&lt;T&gt;(values: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.slice.html">&amp;mut [T]</a>) <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: <a class="trait" href="https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html" title="trait core::marker::Copy">Copy</a> + <a class="trait" href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html" title="trait core::cmp::PartialOrd">PartialOrd</a>,&nbsp;</span></pre><div class='docblock'><p>My own implementation of merge sort</p>
 <p>I'm not all that happy with this. I've spent a while mulling over various
 iterator and C-like indexing versions. Nothing was particularly clean. This
 needs to be improved.</p>

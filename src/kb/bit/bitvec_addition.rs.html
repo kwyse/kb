@@ -10,10 +10,11 @@
     <title>bitvec_addition.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle">
     <script src="../../../storage.js"></script>
     
 
@@ -223,7 +224,7 @@
                     <span class="ident">ret</span>.<span class="ident">push</span>(<span class="number">0</span>);
                 }
             },
-            (_, _) <span class="op">=&gt;</span> {
+            (<span class="kw">_</span>, <span class="kw">_</span>) <span class="op">=&gt;</span> {
                 <span class="kw">return</span> <span class="prelude-val">Err</span>(<span class="string">&quot;Bit vector does not contain bits&quot;</span>);
             }
         }

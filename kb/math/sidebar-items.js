@@ -1,1 +1,1 @@
-initSidebarItems({"mod":[["gcd","Find the greatest common divisor"],["sum_first_n","Sum the first n numbers"]]});
+initSidebarItems({"mod":[["fibonacci","Fibonacci sequence"],["gcd","Find the greatest common divisor"],["sum_first_n","Sum the first n numbers"]]});

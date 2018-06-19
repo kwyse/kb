@@ -10,10 +10,11 @@
     <title>binary.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../../normalize.css">
-    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css"
+          id="mainThemeStyle">
     
     <link rel="stylesheet" type="text/css" href="../../../dark.css">
-    <link rel="stylesheet" type="text/css" href="../../../main.css" id="themeStyle">
+    <link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle">
     <script src="../../../storage.js"></script>
     
 
@@ -181,7 +182,7 @@
     }
 
     <span class="kw">if</span> <span class="kw-2">&amp;</span><span class="ident">values</span>[<span class="ident">mid</span>] <span class="op">&lt;</span> <span class="ident">target</span> {
-        <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(_) <span class="op">=</span> <span class="ident">values</span>.<span class="ident">get</span>(<span class="ident">mid</span> <span class="op">+</span> <span class="number">1</span>) {
+        <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="kw">_</span>) <span class="op">=</span> <span class="ident">values</span>.<span class="ident">get</span>(<span class="ident">mid</span> <span class="op">+</span> <span class="number">1</span>) {
             <span class="prelude-val">Some</span>(<span class="ident">mid</span> <span class="op">+</span> <span class="number">1</span>)
         } <span class="kw">else</span> {
             <span class="prelude-val">None</span>
