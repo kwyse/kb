@@ -1,6 +1,6 @@
 //! Fibonacci sequence
 
-use num::Num;
+use num::Unsigned;
 
 /// An iterative Fibonacci sequence
 pub struct FibonacciSequence<T> {
@@ -8,7 +8,7 @@ pub struct FibonacciSequence<T> {
     next: T,
 }
 
-impl<T: Num> FibonacciSequence<T> {
+impl<T: Unsigned> FibonacciSequence<T> {
     pub fn new() -> Self {
         FibonacciSequence {
             current: T::zero(),
@@ -17,7 +17,7 @@ impl<T: Num> FibonacciSequence<T> {
     }
 }
 
-impl<T: Num + Copy> Iterator for FibonacciSequence<T> {
+impl<T: Unsigned + Copy> Iterator for FibonacciSequence<T> {
     type Item = T;
 
     fn next(&mut self) -> Option<T> {
